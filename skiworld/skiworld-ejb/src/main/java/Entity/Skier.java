@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.lang.Float;
 import java.lang.String;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -17,6 +18,7 @@ public class Skier implements Serializable {
 
 	   
 	@Id
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private long idSkier;
 	private int pin;
 	private Float credit;
@@ -25,7 +27,11 @@ public class Skier implements Serializable {
 	private String address;
 	private Date birthday;
 	private static final long serialVersionUID = 1L;
-
+	@ManyToMany(mappedBy="listSkier")
+	private List<Track> listTrack;
+	
+	@ManyToMany(mappedBy="listSkier")
+	private List<Training> listTraining;
 	public Skier() {
 		super();
 	}   

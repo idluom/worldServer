@@ -2,23 +2,31 @@ package Entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Training implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private long idTraining;
 	private Date begeningDate;
 	private Date endDate;
 	private int number;
 	private Float price;
 	private String level;
+	@ManyToMany
+	private List<Skier> listSkier;
+	@ManyToOne
+	private Admin admin;
 	public long getIdTraining() {
 		return idTraining;
 	}
