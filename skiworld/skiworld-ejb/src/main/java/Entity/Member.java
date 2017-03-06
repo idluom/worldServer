@@ -14,6 +14,8 @@ import javax.persistence.*;
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class Member implements Serializable{
 	
+	@Id  
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String lastName;
 	private String firstName;
@@ -21,15 +23,13 @@ public class Member implements Serializable{
 	private Integer cin;
 	private Integer numTel;
 	private Date birthDate;	
-	private String role;
 	private String login;
 	private String password;
 	private static final long serialVersionUID = 1L;
 	
 	public void member(){}
 
-	@Id  
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	
 	public Integer getId() {
 		return id;
 	}
@@ -84,14 +84,6 @@ public class Member implements Serializable{
 
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
-	}
-
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
 	}
 
 	public String getLogin() {
