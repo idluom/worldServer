@@ -10,7 +10,7 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name="member")
+
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class Member implements Serializable{
 	
