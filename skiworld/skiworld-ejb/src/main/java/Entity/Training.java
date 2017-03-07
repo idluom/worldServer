@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Training implements Serializable {
@@ -27,6 +28,9 @@ public class Training implements Serializable {
 	private List<Skier> listSkier;
 	@ManyToOne
 	private Admin admin;
+	@OneToMany(mappedBy="training")
+	private List<TraningSkier> listTrainingSkier;
+	
 	public long getIdTraining() {
 		return idTraining;
 	}

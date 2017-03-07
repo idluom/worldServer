@@ -27,10 +27,11 @@ public class Skier implements Serializable {
 	private String address;
 	private Date birthday;
 	private static final long serialVersionUID = 1L;
-	@OneToMany(mappedBy="track")
+	
+	@OneToMany(mappedBy="skier")
 	private List<TrackSkier> listTrackSkier;
 	
-	@OneToMany(mappedBy="training")
+	@OneToMany(mappedBy="skier")
 	private List<TraningSkier> listTrainingSkier;
 	public Skier() {
 		super();
