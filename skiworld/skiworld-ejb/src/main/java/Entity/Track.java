@@ -26,8 +26,7 @@ public class Track implements Serializable {
 	private String difficulty;
 	
 	private float price;
-	@ManyToOne
-	private Admin admin;
+	
 	
 	@OneToMany(mappedBy="track")
 	private List<TrackSkier> listTrackSkier;

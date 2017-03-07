@@ -26,8 +26,7 @@ public class Training implements Serializable {
 	private String level;
 	@ManyToMany
 	private List<Skier> listSkier;
-	@ManyToOne
-	private Admin admin;
+	
 	@OneToMany(mappedBy="training")
 	private List<TraningSkier> listTrainingSkier;
 	
