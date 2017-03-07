@@ -3,13 +3,13 @@ package Entity;
 import java.io.Serializable;
 
 
+
 import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -19,7 +19,7 @@ public class Track implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	private long idTrack;
+	private int idTrack;
 	
 	private float length;
 	
@@ -35,11 +35,17 @@ public class Track implements Serializable {
 		
 	}
 
+	public Track(String difficulty, float length, float price) {
+		this.difficulty=difficulty;
+		this.length=length;
+		this.price=price;
+	}
+
 	public long getIdTrack() {
 		return idTrack;
 	}
 
-	public void setIdTrack(long idTrack) {
+	public void setIdTrack(int idTrack) {
 		this.idTrack = idTrack;
 	}
 
