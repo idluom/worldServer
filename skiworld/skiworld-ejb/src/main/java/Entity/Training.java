@@ -24,8 +24,7 @@ public class Training implements Serializable {
 	private int number;
 	private Float price;
 	private String level;
-	@ManyToMany
-	private List<Skier> listSkier;
+	
 	
 	@OneToMany(mappedBy="training")
 	private List<TraningSkier> listTrainingSkier;
