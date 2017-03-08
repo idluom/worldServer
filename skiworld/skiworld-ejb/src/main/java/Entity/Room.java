@@ -13,11 +13,12 @@ public class Room implements Serializable {
 
 	   
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idRoom;
 	private String description;
-	private Integer nbrSimpleBed;
-	private Integer nbrDoubleBed;
-	private Float price;
+	private int nbrSimpleBed;
+	private int nbrDoubleBed;
+	private float price;
 	private static final long serialVersionUID = 1L;
 	
 	@ManyToOne
@@ -40,25 +41,23 @@ public class Room implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}   
-	public Integer getNbrSimpleBed() {
-		return this.nbrSimpleBed;
+	
+	public int getNbrSimpleBed() {
+		return nbrSimpleBed;
 	}
-
-	public void setNbrSimpleBed(Integer nbrSimpleBed) {
+	public void setNbrSimpleBed(int nbrSimpleBed) {
 		this.nbrSimpleBed = nbrSimpleBed;
-	}   
-	public Integer getNbrDoubleBed() {
-		return this.nbrDoubleBed;
 	}
-
-	public void setNbrDoubleBed(Integer nbrDoubleBed) {
+	public int getNbrDoubleBed() {
+		return nbrDoubleBed;
+	}
+	public void setNbrDoubleBed(int nbrDoubleBed) {
 		this.nbrDoubleBed = nbrDoubleBed;
-	}   
-	public Float getPrice() {
-		return this.price;
 	}
-
-	public void setPrice(Float price) {
+	public float getPrice() {
+		return price;
+	}
+	public void setPrice(float price) {
 		this.price = price;
 	}
 	public Hotel getHotel() {
