@@ -25,6 +25,15 @@ public class Inventory implements Serializable {
 	private Shop shop;
 	@OneToMany(mappedBy="inventory")
 	private List<Equipement> listEquipement;
+	
+	
+	
+	public Inventory(Long capacity, Shop shop, List<Equipement> listEquipement) {
+		super();
+		this.capacity = capacity;
+		this.shop = shop;
+		this.listEquipement = listEquipement;
+	}
 	public Inventory() {
 		super();
 	}   
@@ -49,12 +58,12 @@ public class Inventory implements Serializable {
 	public void setShop(Shop shop) {
 		this.shop = shop;
 	}
-	/*public List<Equipement> getListEquipements() {
-		return listEquipements;
+	public List<Equipement> getListEquipements() {
+		return listEquipement;
 	}
 	public void setListEquipements(List<Equipement> listEquipements) {
-		this.listEquipements = listEquipements;
-	}*/
+		this.listEquipement = listEquipements;
+	}
 	@Override
 	public String toString() {
 		return "Inventory [id=" + id + ", capacity=" + capacity + "]";
