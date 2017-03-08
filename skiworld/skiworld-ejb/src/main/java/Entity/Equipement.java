@@ -28,9 +28,22 @@ public class Equipement implements Serializable {
    private Shop shop ;
    @ManyToOne
    private Inventory inventory ;
+   @ManyToOne
+   private Discount discount ;
    
    
-
+    
+   
+	
+	public Equipement(String name, String category, Float price, String type, Shop shop, Inventory inventory) {
+	super();
+	this.name = name;
+	this.category = category;
+	this.price = price;
+	this.type = type;
+	this.shop = shop;
+	this.inventory = inventory;
+}
 	public Equipement() {
 		super();
 	}   
@@ -79,12 +92,18 @@ public class Equipement implements Serializable {
 	}
 	
 	
-	/*public Inventory getInventory() {
+	public Inventory getInventory() {
 		return inventory;
 	}
 	public void setInventory(Inventory inventory) {
 		this.inventory = inventory;
-	}*/
+	}
+	public Discount getDiscount() {
+		return discount;
+	}
+	public void setDiscount(Discount discount) {
+		this.discount = discount;
+	}
 	@Override
 	public String toString() {
 		return "Equipement [name=" + name + ", category=" + category + ", price=" + price + ", type=" + type + "]";

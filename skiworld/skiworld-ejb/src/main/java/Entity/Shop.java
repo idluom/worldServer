@@ -31,6 +31,14 @@ public class Shop implements Serializable {
 	@JoinColumn(name="inventory_fk")
 	private Inventory inventory;
     
+	
+	
+	public Shop(String name, List<Equipement> listEquipements, Inventory inventory) {
+		super();
+		this.name = name;
+		this.listEquipements = listEquipements;
+		this.inventory = inventory;
+	}
 	public Shop() {
 		super();
 	}   
