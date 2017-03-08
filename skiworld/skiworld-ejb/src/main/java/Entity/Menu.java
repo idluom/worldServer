@@ -1,39 +1,54 @@
 package Entity;
 
-import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.*;
 
-/**
- * Entity implementation class for Entity: Menu
- *
- */
-@Entity
 
-public class Menu implements Serializable {
-
+public class Menu {
 	
-	private static final long serialVersionUID = 1L;
-	@Id
-	@GeneratedValue
-	private Long idMenu;
-	@OneToMany (mappedBy = "menu")
 	private List <Product> listProduct ;
+	
 	public Menu() {
 	}
-	public Long getIdMenu() {
-		return idMenu;
-	}
-	public void setIdMenu(Long idMenu) {
-		this.idMenu = idMenu;
-	}
+
 	public List<Product> getListProduct() {
 		return listProduct;
 	}
+
 	public void setListProduct(List<Product> listProduct) {
 		this.listProduct = listProduct;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((listProduct == null) ? 0 : listProduct.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Menu other = (Menu) obj;
+		if (listProduct == null) {
+			if (other.listProduct != null)
+				return false;
+		} else if (!listProduct.equals(other.listProduct))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Menu [listProduct=" + listProduct + "]";
+	}
+	
 
    
 }

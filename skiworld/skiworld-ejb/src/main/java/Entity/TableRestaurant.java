@@ -45,5 +45,16 @@ public class TableRestaurant implements Serializable {
 	public void setTableNumber(Integer tableNumber) {
 		this.tableNumber = tableNumber;
 	}
+	/**
+	 * @param seattingCapacity
+	 * @param tableNumber
+	 * @param restaurant
+	 */
+	public TableRestaurant(Integer seattingCapacity, Integer tableNumber, Restaurant restaurant) {
+		super();
+		this.seattingCapacity = seattingCapacity;
+		this.tableNumber = tableNumber;
+		this.restaurant = restaurant;
+	}
    
 }

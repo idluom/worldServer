@@ -49,9 +49,19 @@ public class Restaurant implements Serializable {
 		this.nameRestaurant = nameRestaurant;
 	}
 
+	public List<TableRestaurant> getTableRestaurant() {
+		return tableRestaurant;
+	}
+
+	public void setTableRestaurant(List<TableRestaurant> tableRestaurant) {
+		this.tableRestaurant = tableRestaurant;
+	}
+
 	@Override
 	public String toString() {
-		return "Restaurant [nameRestaurant=" + nameRestaurant + "]";
+		return "Restaurant [nameRestaurant=" + nameRestaurant + ", tableRestaurant=" + tableRestaurant + "]";
 	}
+
+	
    
 }

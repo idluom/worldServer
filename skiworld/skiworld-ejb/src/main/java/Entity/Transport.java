@@ -42,7 +42,7 @@ public class Transport implements Serializable {
 	 * @param arrivalPlace
 	 * @param departureDate
 	 * @param arrivalDate
-	 * @param price
+	 * @param i
 	 * @param type
 	 * @param numberPlaces
 	 */

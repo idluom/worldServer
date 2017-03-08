@@ -21,7 +21,7 @@ public class Product implements Serializable {
 	private String category;
 	private String type;
 	@ManyToOne
-	private Menu menu;
+	private DayMenu menu;
 	private static final long serialVersionUID = 1L;
 
 	public Product() {
@@ -53,6 +53,11 @@ public class Product implements Serializable {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+	@Override
+	public String toString() {
+		return "Product [nameProduct=" + nameProduct + ", category=" + category + ", type=" + type + ", menu=" + menu
+				+ "]";
 	}
    
 }
