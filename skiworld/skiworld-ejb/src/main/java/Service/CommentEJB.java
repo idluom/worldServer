@@ -1,5 +1,7 @@
 package Service;
 
+import java.util.List;
+
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -11,10 +13,9 @@ import Entity.Comment;
  * Session Bean implementation class CommentEJB
  */
 @Stateless
-@LocalBean
 public class CommentEJB implements CommentEJBRemote {
 
-	@PersistenceContext
+	@PersistenceContext(unitName = "skiworld-ejb")
 	EntityManager em;
     /**
      * Default constructor. 
@@ -38,6 +39,12 @@ public class CommentEJB implements CommentEJBRemote {
 	@Override
 	public void addComment(Comment comment) {
 		em.persist(comment);
+	}
+
+	@Override
+	public List<Comment> findAllComments() {
+		
+		return em.createQuery("SELECT c FROM Comment c",Comment.class).getResultList();
 	}
 
 }
