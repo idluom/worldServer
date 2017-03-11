@@ -28,7 +28,7 @@ public class ReportEJB implements ReportEJBRemote {
 	@Override
 	public List<Report> findAllReports() {
 		
-		return em.createQuery("SELECT r FROM Report r", Report.class).getResultList();
+		return em.createQuery("SELECT r FROM Report r ORDER BY r.dateReport DESC", Report.class).getResultList();
 	}
 
 }

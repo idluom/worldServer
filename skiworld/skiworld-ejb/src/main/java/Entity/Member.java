@@ -5,7 +5,6 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
-import javax.persistence.Table;
 import javax.persistence.*;
 
 
@@ -25,6 +24,7 @@ public class Member implements Serializable{
 	private Date birthDate;	
 	private String login;
 	private String password;
+	private String mail;
 	private static final long serialVersionUID = 1L;
 	
 	public void member(){}
@@ -102,8 +102,12 @@ public class Member implements Serializable{
 		this.password = password;
 	}
 	
+	public String getMail() {
+		return mail;
+	}
 	
-	
-	
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
 	
 }
