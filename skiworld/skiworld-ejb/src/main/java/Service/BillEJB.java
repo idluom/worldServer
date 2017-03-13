@@ -1,5 +1,6 @@
 package Service;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.LocalBean;
@@ -8,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import Entity.Bill;
+
 
 
 /**
@@ -51,6 +53,27 @@ public class BillEJB implements BillEJBRemote {
 	public List<Bill> DisplayAllBills() {
 		 return em.createQuery("SELECT r FROM Bill r ", Bill.class).getResultList();
 		
+	}
+
+	@Override
+	public List<Bill> FindByDate(Date date) {
+		try{ 
+			 return	em.createQuery("SELECT m FROM Bill m WHERE m.date =?", Bill.class)
+				.setParameter(1,date).getResultList();
+			}catch (Exception e) {
+				return null;
+			}
+		
+	}
+
+	@Override
+	public List<Bill> FindByEquipementName(String name) {
+		try{ 
+			 return	em.createQuery("SELECT m FROM Bill m WHERE m.equipementName =?", Bill.class)
+				.setParameter(1,name).getResultList();
+			}catch (Exception e) {
+				return null;
+			}
 	}
 
 	

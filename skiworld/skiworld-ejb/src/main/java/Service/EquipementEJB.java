@@ -8,9 +8,9 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+
 import Entity.Equipement;
-import Entity.Report;
-import Entity.Skier;
+
 
 /**
  * Session Bean implementation class EquipementEJB
@@ -59,6 +59,17 @@ public class EquipementEJB implements EquipementEJBRemote {
 	@Override
 	public List<Equipement> displayAllInventoryEquipement() {
 		return em.createQuery("SELECT r FROM Equipement r WHERE r.inventory is not null", Equipement.class).getResultList();
+	}
+	
+	
+	
+	@Override
+	public Equipement FindByName(String name) {
+		try{ 
+			 return	em.createQuery("SELECT m FROM Equipement m WHERE m.name =?", Equipement.class)
+				.setParameter(1,name).getSingleResult();
+			}catch (Exception e) {	return null;}
+	
 	}
 	
 	
