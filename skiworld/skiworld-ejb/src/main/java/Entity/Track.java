@@ -19,7 +19,7 @@ public class Track implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	private int idTrack;
+	private Long idTrack;
 	
 	private float length;
 	
@@ -45,7 +45,7 @@ public class Track implements Serializable {
 		return idTrack;
 	}
 
-	public void setIdTrack(int idTrack) {
+	public void setIdTrack(Long idTrack) {
 		this.idTrack = idTrack;
 	}
 
