@@ -18,8 +18,22 @@ public class Training implements Serializable {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private long idTraining;
+	private String title;
+	private String description;
 	private Date begeningDate;
 	private Date endDate;
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	private int number;
 	private Float price;
 	private String level;
