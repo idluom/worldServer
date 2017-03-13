@@ -13,10 +13,10 @@ import javax.persistence.*;
 
 public class DayMenu implements Serializable {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY )
 	private Long idDayMenu ;
 	private Date dayMenuDate;
-	@OneToMany (mappedBy="menu")
+	@OneToMany (mappedBy="menu", cascade={CascadeType.REMOVE,CascadeType.MERGE},fetch =FetchType.EAGER)
 	private List <Product> dayMenuList;
 	private static final long serialVersionUID = 1L;
 
@@ -45,6 +45,11 @@ public class DayMenu implements Serializable {
 		return "DayMenu [dayMenuDate=" + dayMenuDate + ", dayMenuList=" + dayMenuList + "]";
 	}
 
-	
+	public void affectProd(List <Product> prodList){
+		   for (Product prod : prodList) {
+			prod.setMenu(this);
+		}
+		   this.setDayMenuList(prodList);
+	   }
    
 }

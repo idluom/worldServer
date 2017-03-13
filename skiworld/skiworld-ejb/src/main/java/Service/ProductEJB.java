@@ -7,6 +7,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import Entity.DayMenu;
 import Entity.Product;
 
 /**
@@ -31,8 +32,8 @@ public class ProductEJB implements ProductEJBRemote {
 
 	@Override
 	public void deleteProduct(Product product) {
-		em.merge(product);
-		em.remove(product);
+		Product m = em.merge(product);
+		em.remove(m);
 	}
 
 	@Override
