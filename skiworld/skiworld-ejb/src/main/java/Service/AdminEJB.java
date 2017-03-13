@@ -47,8 +47,21 @@ public class AdminEJB implements AdminEJBRemote {
 	}
 
 	@Override
-	public void updateAdmin(Admin a) {
-		em.merge(a);
+	public void updateAdmin(Member member) {
+		if (member instanceof Admin) {
+			Admin admin = (Admin) member;
+			em.merge(admin);
+		} else if (member instanceof RestaurantOwner) {
+			RestaurantOwner admin = (RestaurantOwner) member;
+			em.merge(admin);
+		} else if (member instanceof ShopOwner) {
+			ShopOwner admin = (ShopOwner) member;
+			em.merge(admin);
+		} else if (member instanceof HotelManager) {
+			HotelManager admin = (HotelManager) member;
+			em.merge(admin);
+		}
+		
 	}
 
 	@Override
@@ -72,5 +85,29 @@ public class AdminEJB implements AdminEJBRemote {
 		
 		return em.createQuery("SELECT m FROM Member m", Member.class).getResultList();
 	}
+	
+	@Override
+	public Admin getAdmin() {
+		return em.createQuery("select a from Admin a", Admin.class).getSingleResult();
+				
+	}
+
+	@Override
+	public HotelManager getHotelManager() {
+		return em.createQuery("select h from HotelManager h",HotelManager.class).getSingleResult();
+	}
+
+	@Override
+	public ShopOwner getShopOwner() {
+		return em.createQuery("select s from ShopOwner s", ShopOwner.class).getSingleResult();
+	}
+
+	@Override
+	public RestaurantOwner getRestaurantOwner() {
+		return em.createQuery("select r from RestaurantOwner r",RestaurantOwner.class).getSingleResult();
+	}
+	
+	
+
 
 }
