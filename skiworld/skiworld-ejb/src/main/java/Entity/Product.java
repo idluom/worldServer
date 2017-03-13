@@ -90,6 +90,15 @@ public class Product implements Serializable {
 	public void setMenu(DayMenu menu) {
 		this.menu = menu;
 	}
+	
+	public Float getProductPrice() {
+		return productPrice;
+	}
+
+	public void setProductPrice(Float productPrice) {
+		this.productPrice = productPrice;
+	}
+
 	@Override
 	public String toString() {
 		return "Product [nameProduct=" + nameProduct + ", category=" + category + ", type=" + type +  "]";
