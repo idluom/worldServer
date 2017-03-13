@@ -1,12 +1,13 @@
 package Service;
 
+import java.util.Date;
+
 import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import Entity.Track;
 import Entity.Training;
 
 @Stateless
@@ -42,6 +43,13 @@ public class TrainingEJB implements TrainingEJBRemote {
 	public List<Training> findAllTraining() {
 		
 		return em.createQuery("select p from Training p",Training.class).getResultList();
+	}
+
+	@Override
+	public List<Training> findAllTrainingByLevel(String level,Date Bd) {
+		
+		return em.createQuery("select p from Training p where p.level=?1 and p.begeningDate=?2",Training.class).setParameter(1,level).setParameter(2, Bd).getResultList();
+		
 	}
 	
 }

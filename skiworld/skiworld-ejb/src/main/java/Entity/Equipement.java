@@ -27,7 +27,8 @@ public class Equipement implements Serializable {
 	private String type;
 	private Float shopquantity ;
 	private Float inventoryquantity ;
-	private Blob Photo ;
+	@Lob
+	private byte[] Photo ;
 	private static final long serialVersionUID = 1L;
    @ManyToOne
    private Shop shop ;
@@ -42,7 +43,7 @@ public class Equipement implements Serializable {
 	
 	
 	public Equipement(String name, String category, Float price, String type, Float shopquantity, Float inventoryquantity,
-		Blob photo, Shop shop, Inventory inventory, Discount discount) {
+		byte[] photo, Shop shop, Inventory inventory, Discount discount) {
 	super();
 	this.name = name;
 	this.category = category;
@@ -116,10 +117,10 @@ public class Equipement implements Serializable {
 		this.discount = discount;
 	}
 	
-	public Blob getPhoto() {
+	public byte[] getPhoto() {
 		return Photo;
 	}
-	public void setPhoto(Blob photo) {
+	public void setPhoto(byte[] photo) {
 		Photo = photo;
 	}
 	

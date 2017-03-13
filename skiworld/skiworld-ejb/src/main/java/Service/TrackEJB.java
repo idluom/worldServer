@@ -37,7 +37,7 @@ public class TrackEJB implements TrackEJBRemote{
 		em.merge(t);
 	}
 	@Override
-	public Track findTrackById(int idTrack) {
+	public Track findTrackById(Long idTrack) {
 		return em.find(Track.class, idTrack);
 		
 	}
