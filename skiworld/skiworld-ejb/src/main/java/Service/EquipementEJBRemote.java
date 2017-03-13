@@ -1,5 +1,7 @@
 package Service;
 
+import java.util.List;
+
 import javax.ejb.Remote;
 
 import Entity.Equipement;
@@ -12,6 +14,9 @@ public interface EquipementEJBRemote {
 	public Equipement findEquipementById(Long id);
 	public void delete(Equipement E);
 	public  float priceAfterDiscount(Equipement E) ;
+	public List<Equipement> displayAllShopEquipement() ;
+	public List<Equipement> displayAllInventoryEquipement() ;
+	
 	 
 	
 	

@@ -8,5 +8,6 @@ import Entity.Inventory;
 public interface InventoryEJBRemote {
  public void update(Inventory I);
  public Inventory findInventoryByID(Long id);
+ public void delete(Inventory I);
  
 }

@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import Entity.Discount;
+import Entity.Events;
 
 /**
  * Session Bean implementation class DiscountEJB
@@ -42,6 +43,18 @@ public class DiscountEJB implements DiscountEJBRemote {
 	public void delete(Discount D) {
 		
 		em.remove(em.merge(D));
+		
+	}
+
+	@Override
+	public Discount findByPercentage(Float percentage) {
+		try{ 
+		 return	em.createQuery("SELECT m FROM Discount m WHERE m.percentage =?", Discount.class)
+			.setParameter(1,percentage).getSingleResult();
+		}catch (Exception e) {
+			return null;
+		}
+		
 		
 	}
 
