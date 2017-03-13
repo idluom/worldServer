@@ -25,7 +25,7 @@ public class Shop implements Serializable {
 	private Long id;
 	private String name;
 	private static final long serialVersionUID = 1L;
-	@OneToMany(mappedBy="shop" ,fetch =FetchType.EAGER)
+	@OneToMany(mappedBy="shop")
 	private List<Equipement> listEquipements;
 	@OneToOne (cascade=CascadeType.PERSIST)
 	@JoinColumn(name="inventory_fk")
@@ -72,6 +72,7 @@ public class Shop implements Serializable {
 	public void setInventory(Inventory inventory) {
 		this.inventory = inventory;
 	}
+	
 	
    
 }

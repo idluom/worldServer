@@ -1,5 +1,7 @@
 package Service;
 
+
+
 import javax.ejb.Remote;
 
 import Entity.Discount;
@@ -10,6 +12,8 @@ public interface DiscountEJBRemote {
 	public void updateDiscount(Discount D);
 	public Discount findDiscountById(Long id);
 	public void delete (Discount D);
+	public Discount findByPercentage(Float percentage) ;
+	
 	
 
 }

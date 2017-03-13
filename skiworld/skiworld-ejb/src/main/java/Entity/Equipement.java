@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.lang.Float;
 import java.lang.Long;
 import java.lang.String;
+import java.sql.Blob;
+
 import javax.persistence.*;
 
 /**
@@ -23,6 +25,9 @@ public class Equipement implements Serializable {
 	private String category;
 	private Float price;
 	private String type;
+	private Float shopquantity ;
+	private Float inventoryquantity ;
+	private Blob Photo ;
 	private static final long serialVersionUID = 1L;
    @ManyToOne
    private Shop shop ;
@@ -35,14 +40,20 @@ public class Equipement implements Serializable {
     
    
 	
-	public Equipement(String name, String category, Float price, String type, Shop shop, Inventory inventory) {
+	
+	public Equipement(String name, String category, Float price, String type, Float shopquantity, Float inventoryquantity,
+		Blob photo, Shop shop, Inventory inventory, Discount discount) {
 	super();
 	this.name = name;
 	this.category = category;
 	this.price = price;
 	this.type = type;
+	this.shopquantity = shopquantity;
+	this.inventoryquantity = inventoryquantity;
+	Photo = photo;
 	this.shop = shop;
 	this.inventory = inventory;
+	this.discount = discount;
 }
 	public Equipement() {
 		super();
@@ -104,9 +115,31 @@ public class Equipement implements Serializable {
 	public void setDiscount(Discount discount) {
 		this.discount = discount;
 	}
+	
+	public Blob getPhoto() {
+		return Photo;
+	}
+	public void setPhoto(Blob photo) {
+		Photo = photo;
+	}
+	
+	public Float getShopquantity() {
+		return shopquantity;
+	}
+	public void setShopquantity(Float shopquantity) {
+		this.shopquantity = shopquantity;
+	}
+	public Float getInventoryquantity() {
+		return inventoryquantity;
+	}
+	public void setInventoryquantity(Float inventoryquantity) {
+		this.inventoryquantity = inventoryquantity;
+	}
 	@Override
 	public String toString() {
-		return "Equipement [name=" + name + ", category=" + category + ", price=" + price + ", type=" + type + "]";
+		return "Equipement [name=" + name + ", category=" + category + ", price=" + price + ", type=" + type
+				+ ", shopquantity=" + shopquantity + ", inventoryquantity=" + inventoryquantity + ", Photo=" + Photo
+				+ ", shop=" + shop + ", inventory=" + inventory + ", discount=" + discount + "]";
 	}
 	
 	

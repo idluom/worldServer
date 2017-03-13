@@ -32,6 +32,12 @@ public class InventoryEJB implements InventoryEJBRemote {
 		return em.find(Inventory.class, id);
 	}
 
+	@Override
+	public void delete(Inventory I) {
+		em.remove(em.merge(I));
+		
+	}
+
 	
 
 }
