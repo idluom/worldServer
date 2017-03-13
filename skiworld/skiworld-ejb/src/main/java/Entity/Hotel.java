@@ -18,7 +18,7 @@ public class Hotel implements Serializable {
 	private Long idHotel;
 	private String name;
 	private Integer stars;
-	private String typeHotel;
+	private String description;
 	private static final long serialVersionUID = 1L;
 	@OneToMany(mappedBy = "hotel")
 	private List<Events> listEvents;
@@ -54,12 +54,12 @@ public class Hotel implements Serializable {
 		this.stars = stars;
 	}
 
-	public String getTypeHotel() {
-		return this.typeHotel;
+	public String getDescription() {
+		return this.description;
 	}
 
-	public void setTypeHotel(String typeHotel) {
-		this.typeHotel = typeHotel;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public List<Events> getListEvents() {

@@ -22,12 +22,11 @@ public class EventEJB implements EventEJBRemote {
 	 * Default constructor.
 	 */
 	public EventEJB() {
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void addEvent(Events event) {
-		em.merge(event);
+		em.persist(event);
 
 	}
 

@@ -1,6 +1,11 @@
 package Entity;
 
 import java.io.Serializable;
+import java.util.Date;
+
+
+
+
 import javax.persistence.*;
 
 /**
@@ -17,6 +22,7 @@ public class Events implements Serializable {
 	private String name;
 	private String description;
 	private String place;
+	private Date date;
 	private Integer nbrPlaces;
 	private Float price;
 	private static final long serialVersionUID = 1L;
@@ -50,6 +56,15 @@ public class Events implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
 
 	public String getPlace() {
 		return this.place;

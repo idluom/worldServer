@@ -66,5 +66,10 @@ public class Room implements Serializable {
 	public void setHotel(Hotel hotel) {
 		this.hotel = hotel;
 	}
+	@Override
+	public String toString() {
+		return "Room [idRoom=" + idRoom + ", description=" + description + ", nbrSimpleBed=" + nbrSimpleBed
+				+ ", nbrDoubleBed=" + nbrDoubleBed + ", price=" + price + ", hotel=" + hotel + "]";
+	}
    
 }
