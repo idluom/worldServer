@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.jms.Session;
+import javax.management.Query;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -53,6 +55,15 @@ public class RoomEJB implements RoomEJBRemote {
 	public List<Room> findAllRoom() {
 		
 		return em.createQuery("SELECT r from Room r", Room.class).getResultList();
+	}
+
+	@Override
+	public Long findNumberRoom(int sbed,int dbed) {
+		Long i=(Long)em.createQuery("Select count(*) from Room r where r.nbrSimpleBed=?1 and r.nbrDoubleBed=?2").setParameter(1, sbed).setParameter(2, dbed).getSingleResult();
+		System.out.println("le nombre EJB"+i);
+		return i;
+		//return em.createQuery("Select count(*) from Room r where r.nbrSimpleBed=?1 and r.nbrDoubleBed=?2",Room.class).setParameter(1, sbed).setParameter(2, dbed).getSingleResult();
+		
 	}
 
 }

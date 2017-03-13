@@ -1,5 +1,6 @@
 package Service;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Remote;
@@ -14,4 +15,5 @@ public interface EventEJBRemote {
 	public void deleteEvent(Events event);
 	public Events findEventById(Long id);
 	public List<Events> findAllEvent();
+	public boolean findEventByDate(Date date);
 }
