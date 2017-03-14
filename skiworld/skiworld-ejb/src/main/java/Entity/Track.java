@@ -19,7 +19,7 @@ public class Track implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	private int idTrack;
+	private Long idTrack;
 	
 	private float length;
 	
@@ -27,7 +27,8 @@ public class Track implements Serializable {
 	
 	private float price;
 	
-	
+	private String title;
+	private String description;
 	@OneToMany(mappedBy="track")
 	private List<TrackSkier> listTrackSkier;
 
@@ -45,7 +46,7 @@ public class Track implements Serializable {
 		return idTrack;
 	}
 
-	public void setIdTrack(int idTrack) {
+	public void setIdTrack(Long idTrack) {
 		this.idTrack = idTrack;
 	}
 
@@ -77,6 +78,22 @@ public class Track implements Serializable {
 	public String toString() {
 		return "Track [idTrack=" + idTrack + ", length=" + length + ", difficulty=" + difficulty + ", price=" + price
 				+ "]";
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 	

@@ -16,7 +16,7 @@ public interface EquipementEJBRemote {
 	public  float priceAfterDiscount(Equipement E) ;
 	public List<Equipement> displayAllShopEquipement() ;
 	public List<Equipement> displayAllInventoryEquipement() ;
-	
+	public Equipement FindByName(String name);
 	 
 	
 	

@@ -1,5 +1,7 @@
 package Service;
 
+import java.util.List;
+
 import javax.ejb.Remote;
 
 import Entity.Trip;
@@ -11,5 +13,6 @@ public interface TripEJBRemote {
 	public void deleteTrip(Trip t);
 	public void updateTrip(Trip t);
 	public Trip findById(int id);
+	public List<Trip> DisplayAll();
 	
 }

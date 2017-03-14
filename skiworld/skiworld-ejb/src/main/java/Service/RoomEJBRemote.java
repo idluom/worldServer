@@ -13,5 +13,6 @@ public interface RoomEJBRemote {
 	public void deleteRoom(Room room);
 	public Room findRoomById(Long id);
 	public List<Room> findAllRoom();
+	public Long findNumberRoom(int sbed,int dbed);
 
 }

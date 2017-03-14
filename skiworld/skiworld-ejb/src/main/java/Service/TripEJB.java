@@ -1,10 +1,13 @@
 package Service;
 
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import Entity.Transport;
 import Entity.Trip;
 
 /**
@@ -40,5 +43,12 @@ public class TripEJB implements TripEJBRemote {
 	public Trip findById(int id) {
 		return em.find(Trip.class, id);
 	}
+
+	@Override
+	public List<Trip> DisplayAll() { 
+		return em.createQuery("select t from Trip t", Trip.class).getResultList();
+	}
+	
+
 
 }
