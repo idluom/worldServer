@@ -20,6 +20,8 @@ public class Trip implements Serializable {
 	private String video;
 	@ManyToMany
 	private List<Skier> skier; 
+	@ManyToMany(mappedBy="listTrip")
+	private List<Transport> listTransport;
 	private static final long serialVersionUID = 1L;
 	public Trip(){}
 	
@@ -30,6 +32,16 @@ public class Trip implements Serializable {
 		this.price = price;
 		this.number = number;
 		this.date = date;
+	}
+
+
+	public List<Transport> getListTransport() {
+		return listTransport;
+	}
+
+
+	public void setListTransport(List<Transport> listTransport) {
+		this.listTransport = listTransport;
 	}
 
 

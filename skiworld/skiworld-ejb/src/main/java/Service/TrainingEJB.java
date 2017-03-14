@@ -1,6 +1,7 @@
 package Service;
 
 import java.text.SimpleDateFormat;
+
 import java.util.Date;
 
 import java.util.List;
@@ -10,7 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import Entity.Training;
-import Entity.Trip;
+
 
 @Stateless
 public class TrainingEJB implements TrainingEJBRemote {
