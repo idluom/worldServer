@@ -26,6 +26,8 @@ public class Skier implements Serializable {
 	private String lastName;
 	private String address;
 	private Date birthday;
+	@ManyToMany(mappedBy="skier")
+	private List<Trip> Trips;
 	private static final long serialVersionUID = 1L;
 	
 	@OneToMany(mappedBy="skier")
@@ -84,6 +86,14 @@ public class Skier implements Serializable {
 
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
+	}
+	
+	
+	public List<Trip> getTrips() {
+		return Trips;
+	}
+	public void setTrips(List<Trip> trips) {
+		Trips = trips;
 	}
 	@Override
 	public String toString() {

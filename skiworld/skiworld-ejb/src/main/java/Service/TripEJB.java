@@ -30,6 +30,7 @@ public class TripEJB implements TripEJBRemote {
 
 	@Override
 	public void deleteTrip(Trip t) {
+		//em.createQuery("SELECT r FROM r where r.id = ?")
 		em.remove(em.merge(t));		
 	}
 
@@ -45,9 +46,17 @@ public class TripEJB implements TripEJBRemote {
 	}
 
 	@Override
-	public List<Trip> DisplayAll() { 
+	public List<Trip> DisplayAll() {
 		return em.createQuery("select t from Trip t", Trip.class).getResultList();
 	}
+
+	@Override
+	public Long nbrSkier(int id) {
+		Long i =(Long) em.createQuery("select count(*)  from Skier s join s.Trips t where t.id="+id).getSingleResult();
+return i;
+	}
+	
+	
 	
 
 

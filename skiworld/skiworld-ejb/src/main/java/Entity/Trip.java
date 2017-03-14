@@ -2,7 +2,7 @@ package Entity;
 
 import java.io.Serializable;
 import java.util.Date;
-
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -12,13 +12,14 @@ public class Trip implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	Integer id ;
-	String description;
-	float price;
-	int number;
-	Date date;
-	String video;
-	
+	private Integer id ;
+	private String description;
+	private float price;
+	private int number;
+	private Date date;
+	private String video;
+	@ManyToMany
+	private List<Skier> skier; 
 	private static final long serialVersionUID = 1L;
 	public Trip(){}
 	
@@ -67,6 +68,15 @@ public class Trip implements Serializable {
 	}
 	public void setVideo(String video) {
 		this.video = video;
+	}
+
+	public List<Skier> getSkier() {
+		return skier;
+	}
+
+
+	public void setSkier(List<Skier> skier) {
+		this.skier = skier;
 	}
 
 

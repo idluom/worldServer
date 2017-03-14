@@ -14,5 +14,6 @@ public interface TripEJBRemote {
 	public void updateTrip(Trip t);
 	public Trip findById(int id);
 	public List<Trip> DisplayAll();
+	public Long nbrSkier(int id);
 	
 }
