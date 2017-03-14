@@ -1,5 +1,8 @@
 package Service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.LocalBean;
@@ -8,6 +11,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import Entity.DayMenu;
+import Entity.Product;
+import Entity.Training;
 
 /**
  * Session Bean implementation class DayMenuEJB
@@ -55,4 +60,30 @@ public class DayMenuEJB implements DayMenuEJBRemote {
 		return em.find(DayMenu.class, idMenu);
 	}
 
+	@Override
+	public DayMenu findMenuByDate(Date d) {
+		SimpleDateFormat simpleDateformat = new SimpleDateFormat("yyyy-MM-dd");
+		System.out.println(simpleDateformat.format(d));
+		try {
+			Date dt = simpleDateformat.parse(simpleDateformat.format(d));
+			return em.createQuery("select p from DayMenu p where p.dayMenuDate like '"+simpleDateformat.format(d)+"%'",DayMenu.class).getSingleResult();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+		
+		
+	}
+
+	@Override
+	public void deleteMenu2(DayMenu menu) {
+		
+		for (Product produit : menu.getDayMenuList()) {
+		produit.setMenu(null);
+		
+		}
+		em.remove(em.merge(menu));
+	}
+	
 }

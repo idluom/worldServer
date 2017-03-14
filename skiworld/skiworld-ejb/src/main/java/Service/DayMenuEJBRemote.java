@@ -1,5 +1,6 @@
 package Service;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Remote;
@@ -14,4 +15,6 @@ public interface DayMenuEJBRemote {
 	public void updateMenu(DayMenu menu);
 	public List<DayMenu> displayMeanTransport();
 	public DayMenu findMenuById (Long idMenu);
+	public DayMenu findMenuByDate (Date d);
+	void deleteMenu2(DayMenu menu);
 }
