@@ -2,9 +2,7 @@ package Entity;
 
 import java.io.Serializable;
 import java.util.Date;
-
-
-
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -26,6 +24,8 @@ public class Events implements Serializable {
 	private Integer nbrPlaces;
 	private Float price;
 	private static final long serialVersionUID = 1L;
+	@ManyToMany
+	private List<Skier> listSkier;
 	@ManyToOne
 	private Hotel hotel;
 
@@ -96,6 +96,14 @@ public class Events implements Serializable {
 
 	public void setHotel(Hotel hotel) {
 		this.hotel = hotel;
+	}
+
+	public List<Skier> getListSkier() {
+		return listSkier;
+	}
+
+	public void setListSkier(List<Skier> listSkier) {
+		this.listSkier = listSkier;
 	}
 
 	@Override

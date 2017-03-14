@@ -1,10 +1,14 @@
 package Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import Entity.Events;
 import Entity.Skier;
 
 /**
@@ -40,6 +44,12 @@ public class SkierEJB implements SkierEJBRemote {
 		
 		em.remove(em.merge(S));
 		
+	}
+	@Override
+	public List<Skier> findSkiersByEvent(Events event) {
+		List<Skier> listSkier=new ArrayList<Skier>();
+		listSkier=em.createQuery("select s from Skier s join s.listEvents e where e.id="+event.getIdEvents()).getResultList();
+		return listSkier;
 	}
 	
 	

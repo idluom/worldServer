@@ -26,6 +26,8 @@ public class Skier implements Serializable {
 	private String lastName;
 	private String address;
 	private Date birthday;
+	@ManyToMany(mappedBy="listSkier")
+	private List<Events> listEvents;
 	@ManyToMany(mappedBy="skier")
 	private List<Trip> Trips;
 	private static final long serialVersionUID = 1L;
@@ -94,6 +96,13 @@ public class Skier implements Serializable {
 	}
 	public void setTrips(List<Trip> trips) {
 		Trips = trips;
+	}
+	
+	public List<Events> getListEvents() {
+		return listEvents;
+	}
+	public void setListEvents(List<Events> listEvents) {
+		this.listEvents = listEvents;
 	}
 	@Override
 	public String toString() {
