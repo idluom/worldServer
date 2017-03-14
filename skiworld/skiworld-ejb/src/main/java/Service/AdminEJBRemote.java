@@ -22,5 +22,6 @@ public interface AdminEJBRemote {
 	public HotelManager getHotelManager();
 	public ShopOwner getShopOwner();
 	public RestaurantOwner getRestaurantOwner();
+	public void fetchUsername(String username);
 	
 }

@@ -106,6 +106,11 @@ public class AdminEJB implements AdminEJBRemote {
 	public RestaurantOwner getRestaurantOwner() {
 		return em.createQuery("select r from RestaurantOwner r",RestaurantOwner.class).getSingleResult();
 	}
+
+	@Override
+	public void fetchUsername(String username) {
+		em.createQuery("SELECT m FROM Member m WHERE m.username = ?1",Member.class).setParameter(1, username);
+	}
 	
 	
 
