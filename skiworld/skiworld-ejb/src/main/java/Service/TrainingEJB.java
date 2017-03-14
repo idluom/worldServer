@@ -1,5 +1,6 @@
 package Service;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import Entity.Training;
+import Entity.Trip;
 
 @Stateless
 public class TrainingEJB implements TrainingEJBRemote {
@@ -47,9 +49,19 @@ public class TrainingEJB implements TrainingEJBRemote {
 
 	@Override
 	public List<Training> findAllTrainingByLevel(String level,Date Bd) {
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+		String date=sdf.format(Bd);
 		
-		return em.createQuery("select p from Training p where p.level=?1 and p.begeningDate=?2",Training.class).setParameter(1,level).setParameter(2, Bd).getResultList();
+		return em.createQuery("select p from Training p where p.level=?1 and p.begeningDate like '"+date+"%'",Training.class).setParameter(1,level).getResultList();
+	//	return em.createQuery("select p from Training p where p.level=?1 and p.begeningDate=?2",Training.class).setParameter(1,level).setParameter(2, Bd).getResultList();
+	}
+
+	@Override
+	public List<Training> findAllTrainingTransportByDate(Date d) {
+		return em.createQuery("select p from Training p inner join Trip t where p.begeningDate=t.date and p.begeningDate=?1",Training.class).setParameter(1,d).getResultList();
 		
 	}
+	
+	
 	
 }

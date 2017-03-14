@@ -15,4 +15,5 @@ public interface TrainingEJBRemote {
 	public Training findTrainingById(long id);
 	public List<Training> findAllTraining();
 	public List <Training> findAllTrainingByLevel(String level,Date Bd);
+	public List <Training> findAllTrainingTransportByDate(Date d);
 }
