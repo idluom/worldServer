@@ -97,4 +97,11 @@ public class EventEJB implements EventEJBRemote {
 		
 	}
 
+	@Override
+	public List<Events> findAllEventNotStarted() {
+		Date date=new Date();
+		return em.createQuery("SELECT e from Events e where e.date>:date", Events.class).setParameter("date", date).getResultList();
+		
+	}
+
 }

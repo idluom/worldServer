@@ -16,4 +16,5 @@ public interface EventEJBRemote {
 	public Events findEventById(Long id);
 	public List<Events> findAllEvent();
 	public boolean findEventByDate(Date date);
+	public List<Events> findAllEventNotStarted();
 }
