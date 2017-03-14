@@ -17,9 +17,21 @@ public class Trip implements Serializable {
 	float price;
 	int number;
 	Date date;
+	String video;
 	
 	private static final long serialVersionUID = 1L;
 	public Trip(){}
+	
+	
+	public Trip(String description, float price, int number, Date date) {
+		super();
+		this.description = description;
+		this.price = price;
+		this.number = number;
+		this.date = date;
+	}
+
+
 	public Integer getId() {
 		return id;
 	}
@@ -50,6 +62,14 @@ public class Trip implements Serializable {
 	public void setDate(Date date) {
 		this.date = date;
 	}
+	public String getVideo() {
+		return video;
+	}
+	public void setVideo(String video) {
+		this.video = video;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Trip [id=" + id + ", description=" + description + ", price=" + price + ", number=" + number + ", date="
