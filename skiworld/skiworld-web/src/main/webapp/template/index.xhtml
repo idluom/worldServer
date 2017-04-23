@@ -1,0 +1,344 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<html>
+<h:head>
+<title>Reponsive HTML Template</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<!-- Bootstrap -->
+<link href="../ressources/css/bootstrap.min.css" rel="stylesheet"/>
+<link
+	href='http://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800'
+	rel='stylesheet' type='text/css'/>
+<link
+	href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800'
+	rel='stylesheet' type='text/css'/>
+<link href="../ressources/css/style.css" rel="stylesheet"/>
+
+</h:head>
+<h:body>
+	<header class="main__header">
+		<div class="container">
+			<nav class="navbar navbar-default" role="navigation">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="navbar-header">
+					<h1 class="navbar-brand">
+						<a href="index.html">ski<span>ing</span></a>
+					</h1>
+					<a href="#" onClick="javascript.void()" class="submenu">Menus</a>
+				</div>
+				<div class="menuBar">
+					<ul class="menu">
+						<li class="active"><a href="index.html">Home</a></li>
+						<li class="dropdown"><a href="#">Pages</a>
+							<ul>
+								<li><a href="index_fixed.html">Home / Fixed</a></li>
+								<li><a href="index_with_blog.html">Home + Blog</a></li>
+								<li><a href="portfolio.html">Portfolio</a></li>
+								<li><a href="typography.html">Typography</a></li>
+								<li><a href="shortcodes.html">Shortcodes</a></li>
+								<li><a href="blog.html">Blog and News</a></li>
+								<li><a href="tables.html">Tables</a></li>
+								<li><a href="faq.html">FAQ</a></li>
+							</ul></li>
+						<li><a href="left_sidebar.html">left sidebar</a></li>
+						<li><a href="right_sidebar.html">right sidebar</a></li>
+						<li><a href="full_width.html">full page</a></li>
+						<li><a href="contact.html">contact us</a></li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</nav>
+		</div>
+	</header>
+	<section class="slider">
+		<div id="myCarousel" class="carousel slide carousel-fade"
+			data-ride="carousel">
+			<div class="carousel-inner">
+				<div class="item">
+					<img data-src="ressouces/images/slider/slider1.jpg" alt="first slide"
+						src="ressources/images/slider/slider1.jpg"/>
+					<div class="container">
+						<div class="carousel-caption text-left">
+							<h1 class="">Quisque blandit sed</h1>
+							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+								Donec odio. Quisque volutpat mattis eros.</p>
+							<p>
+								<a class="btn btn-default btn-lg" href="#" role="button">get
+									started</a><a class="btn btn-default btn-lg" href="#" role="button">read
+									more</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<img data-src="../ressouces/images/slider/slider2.jpg" alt="second slide"
+						src="../ressouces/images/slider/slider2.jpg"/>
+					<div class="container">
+						<div class="carousel-caption text-left">
+							<h1 class="">Justo rutrum venenatis. Mauris accumsan posuere
+								mauris</h1>
+							<p>Sed et orci purus. Vestibulum molestie, dolor sit amet
+								viverra facilisis, justo magna.</p>
+							<p>
+								<a class="btn btn-default btn-lg" href="#" role="button">get
+									started</a><a class="btn btn-default btn-lg" href="#" role="button">read
+									more</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="item active">
+					<img data-src="../ressouces/images/slider/slider3.jpg" alt="third slide"
+						src="../ressouces/images/slider/slider3.jpg"/>
+					<div class="container">
+						<div class="carousel-caption text-left">
+							<h1 class="">Vivamus ultrices mattis</h1>
+							<p>Consectetur pretium leo. Proin suscipit imperdiet neque,
+								quis lacinia elit cursus nec.</p>
+							<p>
+								<a class="btn btn-default btn-lg" href="#" role="button">get
+									started</a><a class="btn btn-default btn-lg" href="#" role="button">read
+									more</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<a class="left carousel-control" href="#myCarousel" data-slide="prev"><span
+				class="glyphicon carousel-control-left"></span></a> <a
+				class="right carousel-control" href="#myCarousel" data-slide="next"><span
+				class="glyphicon carousel-control-right"></span></a>
+		</div>
+	</section>
+	<!--end of slider section-->
+	<section class="main__middle__container homepage">
+		<div class="row  text-left headings no-margin nothing">
+			<div class="container">
+				<div class="seper"></div>
+				<h1 class="page_title">
+					Donec at mattis lectus, <span>adipiscing pretium</span> ligula.
+				</h1>
+				<p>Phasellus laoreet massa id justo mattis pharetra. Fusce
+					suscipit ligula vel quam viverra sit amet mollis tortor congue. Sed
+					quis mauris sit amet magna accumsan tristique.</p>
+				<p>
+					<a class="btn btn-primary btn-lg" href="#" role="button">more
+						info</a>
+				</p>
+			</div>
+		</div>
+		<div class="titles services text-left">
+			<div class="container">
+				<div class="seper"></div>
+				<h2 class="page__title">Services</h2>
+				<p class="small-paragraph">Cras iaculis ultricies nulla.</p>
+			</div>
+		</div>
+		<div class="row three__blocks  text-left no_padding no-margin">
+			<div class="container">
+				<div class="col-md-4">
+					<h3>
+						<a href="#">Modern Design</a><span class="small-paragraph">Maecenas
+							fermentum semper</span>
+					</h3>
+					<img src="../ressouces/images/content__images/img1.jpg" alt="image"
+						class="img-responsive img-rounded"/>
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+						Donec odio. Quisque volutpat mattis eros.</p>
+					
+						<a class="btn btn-default btn-md" href="#" role="button">Learn
+							more</a>
+				</div>
+				<div class="col-md-4 middle">
+					<h3>
+						<a href="#">High Quality</a><span class="small-paragraph">Maecenas
+							fermentum semper</span>
+					</h3>
+					<img src="../ressouces/images/content__images/img2.jpg" alt="image"
+						class="img-responsive img-rounded"/>
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+						Donec odio. Quisque volutpat mattis eros.</p>
+					
+						<a class="btn btn-default btn-md" href="#" role="button">Learn
+							more</a>
+				</div>
+				<div class="col-md-4">
+					<h3>
+						<a href="#">Quick Support</a><span class="small-paragraph">Maecenas
+							fermentum semper</span>
+					</h3>
+					<img src="../ressouces/images/content__images/img3.jpg" alt="image"
+						class="img-responsive img-rounded"/>
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+						Donec odio. Quisque volutpat mattis eros.</p>
+					
+						<a class="btn btn-default btn-md" href="#" role="button">Learn
+							more</a>
+				</div>
+			</div>
+		</div>
+		<div class="row no_padding no-margin nothing nice__title text-left">
+			<div class="container">
+				<div class="seper"></div>
+				<h2 class="page__title">Donec fringilla vitae ligula facilisis.
+				</h2>
+				<p>Phasellus laoreet massa id justo mattis pharetra. Fusce
+					suscipit ligula vel quam viverra sit amet mollis tortor congue. Sed
+					quis mauris sit amet magna accumsan tristique.</p>
+			</div>
+		</div>
+		<div class="titles aboutus text-left">
+			<div class="container">
+				<div class="seper"></div>
+				<h2 class="page__title">about us</h2>
+				<p class="small-paragraph">Cras iaculis ultricies nulla.</p>
+			</div>
+		</div>
+		<div class="row grey-info-block text-left">
+			<div class="container">
+				<div class="col-md-6">
+					<h3>
+						<a href="#">Commodo id natoque malesuada sollicitudin</a>
+					</h3>
+					<p class="small-paragraph">Cras iaculis ultricies nulla.</p>
+					<img src="../ressouces/images/content__images/pic1.jpg" alt="pic"
+						class="img-rounded img-responsive" id="picture"/>
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+						Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut
+						turpis. Suspendisse urna nibh, viverra non, semper suscipit,
+						posuere a, pede.</p>
+				
+						<a class="btn btn-info" href="#" role="button">Learn more</a>
+					
+				</div>
+				<div class="col-md-6">
+					<h3>
+						<a href="#">Commodo id natoque malesuada sollicitudin</a>
+					</h3>
+					<p class="small-paragraph">Cras iaculis ultricies nulla.</p>
+					<img src="../ressouces/images/content__images/pic2.jpg" alt="pic"
+						class="img-rounded img-responsive" id="picture"/>
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+						Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut
+						turpis. Suspendisse urna nibh, viverra non, semper suscipit,
+						posuere a, pede.</p>
+				
+						<a class="btn btn-info" href="#" role="button">Learn more</a>
+					
+				</div>
+			</div>
+		</div>
+		<div class="row text-left nothing line__bg testimonials">
+			<div class="container">
+				<h3 class="subtitle">Aliquam porttitor mauris sit amet quisque
+					volutpat.</h3>
+				<p class="small-paragrapher">Maecenas fermentum semper porta.</p>
+				<img src="../ressouces/images/content__images/big_image.jpg"
+					class="img-responsive img-rounded"/>
+				<p style="color: #fff;">Donec fringilla vitae ligula vitae
+					facilisis. Vivamus consectetur tincidunt lorem a bibendum. Sed
+					fermentum ac ante sit nec amet convallis suspendisse potenti
+					suspendisse mollis. Tortor nec iaculis tempor, orci augue dignissim
+					nibh, id modo risus purus at nibh. Curabitur ac urna felis
+					phasellus onvallis leo orci, sit amet feugiat nunc pretium
+					fringilla. Morbi nec nulla a magna porta ullamcorper eget sit amet
+					metus duis varius est ut lectus malesuada tincidunt vitae ut velit
+					ac nunc.Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+					Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut
+					turpis. Suspendisse urna nibh, viverra non, semper suscipit,
+					posuere a, pede.</p>
+			</div>
+		</div>
+	</section>
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<h3>About</h3>
+					<p>
+						We strive to deliver a level of service that exceeds the
+						expectations of our customers. <br /> <br /> If you have any
+						questions about our products or services, please do not hesitate
+						to contact us. We have friendly, knowledgeable representatives
+						available seven days a week to assist you.
+					</p>
+				</div>
+				<div class="col-md-3">
+					<h3>Tweets</h3>
+					<p>
+						<span>Tweet</span> <a href="#">@You</a><br /> Etiam egestas,
+						ipsum posuere accumsan sollicitudin, nulla mauris volutpat sem,
+						sit amet rutrum risus.
+					</p>
+					<p>
+						<span>Tweet</span> <a href="#">@You</a><br /> Quisque porta
+						tellus vitae adipiscing molestie. Mauris et lacus blandit,
+						malesuada.
+					</p>
+				</div>
+				<div class="col-md-3">
+					<h3>Mailing list</h3>
+					<p>Subscribe to our mailing list for offers, news updates and
+						more!</p>
+					<br />
+					<form action="#" method="post" class="form-inline" role="form">
+						<div class="form-group">
+							<label class="sr-only" for="exampleInputEmail2">your
+								email</label> <input type="email" class="form-control form-control-lg"
+								id="exampleInputEmail2" placeholder="your email"/>
+						</div>
+						<button type="submit" class="btn btn-primary btn-md">subscribe</button>
+					</form>
+				</div>
+				<div class="col-md-3">
+					<h3>Social</h3>
+					<p>
+						123 Business Way<br /> San Francisco, CA 94108<br /> USA<br />
+						<br /> Phone: (888) 123-4567<br /> Fax: (887) 123-4567<br /> <br />
+					</p>
+					<div class="social__icons">
+						<a href="#" class="socialicon socialicon-twitter"></a> <a href="#"
+							class="socialicon socialicon-facebook"></a> <a href="#"
+							class="socialicon socialicon-google"></a> <a href="#"
+							class="socialicon socialicon-mail"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<p class="text-center copyright">copy; Copyright ABC Company. All
+		Rights Reserved.</p>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script type="text/javascript" src="../ressources/js/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="../ressources/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+
+$('.carousel').carousel({
+  interval: 3500, // in milliseconds
+  pause: 'none' // set to 'true' to pause slider on mouse hover
+})
+
+</script>
+	<script type="text/javascript">
+$( "a.submenu" ).click(function() {
+$( ".menuBar" ).slideToggle( "normal", function() {
+// Animation complete.
+});
+});
+$( "ul li.dropdown a" ).click(function() {
+$( "ul li.dropdown ul" ).slideToggle( "normal", function() {
+// Animation complete.
+});
+$('ul li.dropdown').toggleClass('current');
+});
+</script>
+</h:body>
+	</html>
+
+</ui:composition>
