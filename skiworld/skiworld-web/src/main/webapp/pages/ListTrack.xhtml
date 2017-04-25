@@ -1,0 +1,121 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<!-- 	<h:dataTable value="#{trackBean.doAfficherListTrack()}" var="track" -->
+	<!-- 		border="2"> -->
+	<!-- 		<h:column> -->
+	<!-- 			<f:facet name="header">Difficulty</f:facet> -->
+	<!-- 			<h:outputText value="#{track.difficulty}" /> -->
+	<!-- 		</h:column> -->
+	<!-- 		<h:column> -->
+	<!-- 			<f:facet name="header">Length</f:facet> -->
+	<!-- 			<h:outputText value="#{track.length}" /> -->
+	<!-- 		</h:column> -->
+	<!-- 		<h:column> -->
+	<!-- 			<f:facet name="header">Price</f:facet> -->
+	<!-- 			<h:outputText value="#{track.price}" /> -->
+	<!-- 		</h:column> -->
+	<!-- 		<h:column> -->
+	<!-- 			<f:facet name="header">Title</f:facet> -->
+	<!-- 			<h:outputText value="#{track.title}" /> -->
+	<!-- 		</h:column> -->
+	<!-- 		<h:column> -->
+	<!-- 			<f:facet name="header">action</f:facet> -->
+	<!-- 			<h:commandButton action="#{trackBean.doNew()}" value="more"> -->
+
+	<!-- 				<f:setPropertyActionListener value="#{track}" -->
+	<!-- 					target="#{trackBean.track}"> -->
+	<!-- 				</f:setPropertyActionListener> -->
+	<!-- 				<f:setPropertyActionListener value="true" -->
+	<!-- 					target="#{trackBean.formDisplayed}"> -->
+	<!-- 				</f:setPropertyActionListener> -->
+	<!-- 			</h:commandButton> -->
+
+	<!-- 		</h:column> -->
+	<!-- 	</h:dataTable> -->
+	<ui:repeat value="#{trackBean.doAfficherListTrack()}" var="track">
+		<section class="recent-posts">
+			<div class="container">
+				<div class="row no-margin nothing">
+					<div class="col-md-9 ">
+						<article>
+							<img src="images/content__images/post1.jpg" alt="pic1"
+								class="pull-left img-responsive" > </img>
+							<div class="text">
+
+
+
+
+
+								<p class="small-paragraph">
+									<h:outputText value="${track.title}" />
+									<br />
+								</p>
+
+								Difficulty :
+								<h:outputText value="${track.difficulty}" />
+								<p>
+									Description:
+									<h:outputText value="#{track.description}" />
+								</p>
+								<h3>
+									<small><a href="#">Read More ></a></small>
+								</h3>
+							</div>
+							<div class="clearfix"></div>
+						</article>
+						-->
+					</div>
+					<div class="col-md-3">
+						<div class="icon-item">
+							<h4>
+								<a href="#">Aenean nonummy hendrerit mauris.</a>
+							</h4>
+							<p>Donec odio. Ipsum dolor.</p>
+						</div>
+						<div class="icon-item">
+							<h4>
+								<a href="#">Donec odio.</a>
+							</h4>
+							<p>Nullam malesuada erat</p>
+						</div>
+						<div class="icon-item">
+							<h4>
+								<a href="#">Aenean nonummy hendrerit mauris.</a>
+							</h4>
+							<p>Donec odio. Ipsum dolor.</p>
+						</div>
+						<div class="icon-item">
+							<h4>
+								<a href="#">Donec odio.</a>
+							</h4>
+							<p>Nullam malesuada erat</p>
+						</div>
+						<div class="icon-item">
+							<h4>
+								<a href="#">Nullam malesuada erat ut turpis.</a>
+							</h4>
+							<p>Lorem ipsum dolor sit amet</p>
+						</div>
+						<div class="icon-item">
+							<h4>
+								<a href="#">Aenean nonummy hendrerit mauris.</a>
+							</h4>
+							<p>Donec odio. Ipsum dolor.</p>
+						</div>
+						<div class="icon-item">
+							<h4>
+								<a href="#">Donec odio.</a>
+							</h4>
+							<p>Nullam malesuada erat</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</ui:repeat>
+	<h:form>
+		<h:commandButton action="#{trackBean.doNew()}" value="New" />
+	</h:form>
+</ui:composition>
