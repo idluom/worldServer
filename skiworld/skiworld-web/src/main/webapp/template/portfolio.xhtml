@@ -1,0 +1,193 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                >
+               
+
+<html>
+<head>
+<title>Reponsive HTML Template</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!-- Bootstrap -->
+<link href="#{request.contextPath}/ressources/css/bootstrap.min.css" rel="stylesheet"/>
+<link href='http://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800' rel='stylesheet' type='text/css'/>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'/>
+<link href="#{request.contextPath}/ressources/css/style.css" rel="stylesheet"/>
+<link rel="stylesheet" href="css/magnific-popup.css"/>
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+</head>
+<body>
+<header class="main__header normal">
+  <div class="container">
+    <nav class="navbar navbar-default" role="navigation"> 
+      <!-- Brand and toggle get grouped for better mobile display --> 
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="navbar-header">
+        <h1 class="navbar-brand"><a href="index.jsf">ski<span>ing</span></a></h1>
+        <a href="#" onClick="javascript.void()" class="submenu">Menus</a> </div>
+      <div class="menuBar">
+        <ul class="menu">
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown"><a href="#">Pages</a>
+            <ul>
+              <li><a href="index_fixed.html">Home / Fixed</a></li>
+              <li><a href="index_with_blog.html">Home + Blog</a></li>
+              <li><a href="portfolio.html">Portfolio</a></li>
+              <li><a href="typography.html">Typography</a></li>
+              <li><a href="shortcodes.html">Shortcodes</a></li>
+              <li><a href="blog.jsf">Blog And News</a></li>
+              <li><a href="tables.html">Tables</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+            </ul>
+          </li>
+          <li><a href="left_sidebar.html">left sidebar</a></li>
+          <li><a href="right_sidebar.html">right sidebar</a></li>
+          <li class="active"><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="full_width.html">full page</a></li>
+          <li><a href="contact.jsf">contact us</a></li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse --> 
+    </nav>
+  </div>
+</header>
+<section class="main__middle__container">
+  <div class="titles blog text-left">
+    <div class="container">
+      <div class="seper"></div>
+      <h2 class="page__title">Portfolio</h2>
+      <p class="small-paragraph">Cras iaculis ultricies nulla.</p>
+    </div>
+  </div>
+  <div class="container">
+    <div id="portfolio" class="row no_padding title__block nothing no-margin">
+      <ul class="list-unstyled controls">
+        <li class="filter" data-filter="all">Show All</li>
+        <li class="filter" data-filter="webdesign">Web Design</li>
+        <li class="filter" data-filter="printing">Printing</li>
+        <li class="filter" data-filter="development">We Development</li>
+        <li class="filter" data-filter="seo">SEO Optimization</li>
+      </ul>
+          <ul id="Grid" class="gallery">
+        <li class="mix webdesign col-sm-4"> <a href="#{request.contextPath}/ressources/images/gallery/gallery1.jpg"><img alt="" src="#{request.contextPath}/ressources/images/gallery/gallery1.jpg" class="img-responsive"> <span class="text">Nulla quis lectus eget<span>Lorem ipsum dolor sit amet, consectetuer.</span></span></a> </li>
+        <li class="mix printing col-sm-4"> <a href="#{request.contextPath}/ressources/images/gallery/gallery2.jpg"><img alt="" src="#{request.contextPath}/ressources/images/gallery/gallery2.jpg" class="img-responsive"> <span class="text">Nulla quis lectus eget<span>Lorem ipsum dolor sit amet, consectetuer.</span></span></a> </li>
+        <li class="mix development col-sm-4"> <a href="#{request.contextPath}/ressources/images/gallery/gallery3.jpg"><img alt="" src="#{request.contextPath}/ressources/images/gallery/gallery3.jpg" class="img-responsive"> <span class="text">Nulla quis lectus eget<span>Lorem ipsum dolor sit amet, consectetuer.</span></span></a> </li>
+        <li class="mix seo col-sm-4"> <a href="#{request.contextPath}/ressources/images/gallery/gallery4.jpg"><img alt="" src="#{request.contextPath}/ressources/images/gallery/gallery4.jpg" class="img-responsive"> <span class="text">Nulla quis lectus eget<span>Lorem ipsum dolor sit amet, consectetuer.</span></span></a> </li>
+        <li class="mix seo col-sm-4"> <a href="#{request.contextPath}/ressources/images/gallery/gallery5.jpg"><img alt="" src="#{request.contextPath}/ressources/images/gallery/gallery5.jpg" class="img-responsive"> <span class="text">Nulla quis lectus eget<span>Lorem ipsum dolor sit amet, consectetuer.</span></span></a> </li>
+        <li class="mix development col-sm-4"> <a href="#{request.contextPath}/ressources/images/gallery/gallery6.jpg"><img alt="" src="#{request.contextPath}/ressources/images/gallery/gallery6.jpg" class="img-responsive"> <span class="text">Nulla quis lectus eget<span>Lorem ipsum dolor sit amet, consectetuer.</span></span></a> </li>
+        <li class="mix printing col-sm-4"> <a href="#{request.contextPath}/ressources/images/gallery/gallery7.jpg"><img alt="" src="#{request.contextPath}/ressources/images/gallery/gallery7.jpg" class="img-responsive"> <span class="text">Nulla quis lectus eget<span>Lorem ipsum dolor sit amet, consectetuer.</span></span></a> </li>
+        <li class="mix development col-sm-4"> <a href="#{request.contextPath}/ressources/images/gallery/gallery8.jpg"><img alt="" src="#{request.contextPath}/ressources/images/gallery/gallery8.jpg" class="img-responsive"> <span class="text">Nulla quis lectus eget<span>Lorem ipsum dolor sit amet, consectetuer.</span></span></a> </li>
+        <li class="mix printing col-sm-4"> <a href="#{request.contextPath}/ressources/images/gallery/gallery9.jpg"><img alt="" src="#{request.contextPath}/ressources/images/gallery/gallery9.jpg" class="img-responsive"> <span class="text">Nulla quis lectus eget<span>Lorem ipsum dolor sit amet, consectetuer.</span></span></a> </li>
+        <li class="mix webdesign col-sm-4"> <a href="#{request.contextPath}/ressources/images/gallery/gallery10.jpg"><img alt="" src="#{request.contextPath}/ressources/images/gallery/gallery10.jpg" class="img-responsive"> <span class="text">Nulla quis lectus eget<span>Lorem ipsum dolor sit amet, consectetuer.</span></span></a> </li>
+        <li class="mix seo col-sm-4"> <a href="#{request.contextPath}/ressources/images/gallery/gallery11.jpg"><img alt="" src="#{request.contextPath}/ressources/images/gallery/gallery11.jpg" class="img-responsive"> <span class="text">Nulla quis lectus eget<span>Lorem ipsum dolor sit amet, consectetuer.</span></span></a> </li>
+        <li class="mix webdesign col-sm-4"> <a href="#{request.contextPath}/ressources/images/gallery/gallery12.jpg"><img alt="" src="#{request.contextPath}/ressources/images/gallery/gallery12.jpg" class="img-responsive"> <span class="text">Nulla quis lectus eget<span>Lorem ipsum dolor sit amet, consectetuer.</span></span></a> </li>
+      </ul>
+
+    </div>
+    <h2>Portfolio Text</h2>
+    <hr>
+    <div class="one_third">
+      <h4>1/3</h4>
+      <p>Donec metus leo, elementum at ultrices ac, dapibus at justo. Donec tristique hendrerit dui vitae lacinia. Suspendisse ante ligula, adipiscing porta aliquam et, rutrum nec lectus. Nulla erat risus, molestie non dapibus ac, fermentum vitae felis</p>
+    </div>
+    <div class="one_third">
+      <h4>1/3</h4>
+      <p>Donec metus leo, elementum at ultrices ac, dapibus at justo. Donec tristique hendrerit dui vitae lacinia. Suspendisse ante ligula, adipiscing porta aliquam et, rutrum nec lectus. Nulla erat risus, molestie non dapibus ac, fermentum vitae felis</p>
+    </div>
+    <div class="one_third column-last">
+      <h4>1/3</h4>
+      <p>Donec metus leo, elementum at ultrices ac, dapibus at justo. Donec tristique hendrerit dui vitae lacinia. Suspendisse ante ligula, adipiscing porta aliquam et, rutrum nec lectus. Nulla erat risus, molestie non dapibus ac, fermentum vitae felis</p>
+    </div>
+    <div class="dc_clear"></div>
+    <br />
+    <br />
+    <br />
+  </div>
+</section>
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <h3>About</h3>
+        <p>We strive to deliver a level of service that exceeds the expectations of our customers. <br />
+          <br />
+          If you have any questions about our products or services, please do not hesitate to contact us. We have friendly, knowledgeable representatives available seven days a week to assist you.</p>
+      </div>
+      <div class="col-md-3">
+        <h3>Tweets</h3>
+        <p><span>Tweet</span> <a href="#">@You</a><br />
+          Etiam egestas, ipsum posuere accumsan sollicitudin, nulla mauris volutpat sem, sit amet rutrum risus. </p>
+        <p><span>Tweet</span> <a href="#">@You</a><br />
+          Quisque porta tellus vitae adipiscing molestie. Mauris et lacus blandit, malesuada.</p>
+      </div>
+      <div class="col-md-3">
+        <h3>Mailing list</h3>
+        <p>Subscribe to our mailing list for offers, news updates and more!</p>
+        <br />
+        <form action="#" method="post" class="form-inline" role="form">
+          <div class="form-group">
+            <label class="sr-only" for="exampleInputEmail2">your email</label>
+            <input type="email" class="form-control form-control-lg" id="exampleInputEmail2" placeholder="your email"/>
+          </div>
+          <button type="submit" class="btn btn-primary btn-md">subscribe</button>
+        </form>
+      </div>
+      <div class="col-md-3">
+        <h3>Social</h3>
+        <p>123 Business Way<br />
+          San Francisco, CA 94108<br />
+          USA<br />
+          <br />
+          Phone: (888) 123-4567<br />
+          Fax: (887) 123-4567<br />
+          <br />
+        </p>
+        <div class="social__icons"> <a href="#" class="socialicon socialicon-twitter"></a> <a href="#" class="socialicon socialicon-facebook"></a> <a href="#" class="socialicon socialicon-google"></a> <a href="#" class="socialicon socialicon-mail"></a> </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<p class="text-center copyright">And copy; Copyright ABC Company. All Rights Reserved.</p>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script type="text/javascript" src="js/jquery.min.js"></script> 
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="js/jquery.mixitup.min.js"></script> 
+<script src="js/jquery.magnific-popup.js"></script> 
+<script src="js/bootstrap.min.js"></script> 
+<script type="text/javascript">
+$( "a.submenu" ).click(function() {
+$( ".menuBar" ).slideToggle( "normal", function() {
+// Animation complete.
+});
+});
+$( "ul li.dropdown a" ).click(function() {
+$( "ul li.dropdown ul" ).slideToggle( "normal", function() {
+// Animation complete.
+});
+$('ul li.dropdown').toggleClass('current');
+});
+$(document).ready(function () {
+// Start work gallery
+$('#Grid').mixitup();
+});
+$('.gallery').each(function() { // the containers for all your galleries
+    $(this).magnificPopup({
+        delegate: 'a', // the selector for gallery item
+        type: 'image',
+        gallery: {
+          enabled:true
+        }
+    });
+}); 
+
+</script>
+</body>
+</html>
+			
+</ui:composition>
