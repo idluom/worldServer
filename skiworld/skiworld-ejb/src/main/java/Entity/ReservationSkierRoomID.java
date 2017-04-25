@@ -2,6 +2,8 @@ package Entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Embeddable;
+@Embeddable
 public class ReservationSkierRoomID implements Serializable{
 
 	private int idSkierPK;
