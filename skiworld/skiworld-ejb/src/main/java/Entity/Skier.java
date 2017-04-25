@@ -8,6 +8,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+
+
 /**
  * Entity implementation class for Entity: Skier
  *
@@ -30,6 +32,10 @@ public class Skier implements Serializable {
 	private List<Events> listEvents;
 	@ManyToMany(mappedBy="skier")
 	private List<Trip> Trips;
+	@OneToMany(mappedBy="skier")
+	private List<ReservationSkierRoom> listReservation;
+	
+	
 	private static final long serialVersionUID = 1L;
 	
 	@OneToMany(mappedBy="skier")

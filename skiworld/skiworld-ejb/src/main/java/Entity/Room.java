@@ -1,6 +1,8 @@
 package Entity;
 
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -20,7 +22,8 @@ public class Room implements Serializable {
 	private int nbrDoubleBed;
 	private float price;
 	private static final long serialVersionUID = 1L;
-	
+	@OneToMany(mappedBy="room")
+	private List<ReservationSkierRoom> listReservation;
 	@ManyToOne
 	private Hotel hotel;
 
