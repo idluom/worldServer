@@ -1,0 +1,24 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/template/tst.xhtml">
+                	
+			<ui:define name=""></ui:define>		
+			<ui:define name="pageContent">
+			
+			<h:form>
+			<ul>
+			<h:dataTable value="#{tripBean.fr}" var="trip">
+				
+				<h:column>
+            		<h:outputText value="#{trip.description}" />
+               </h:column>
+              	
+			</h:dataTable>
+			
+			</ul>
+			</h:form>
+		
+			</ui:define>
+</ui:composition>
