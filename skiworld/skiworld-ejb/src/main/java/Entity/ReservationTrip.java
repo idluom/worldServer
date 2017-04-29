@@ -1,16 +1,11 @@
 package Entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.annotation.PostConstruct;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import Service.TripBusiness;
 
 @Entity
 public class ReservationTrip implements Serializable{
