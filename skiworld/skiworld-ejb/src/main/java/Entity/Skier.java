@@ -23,6 +23,7 @@ public class Skier implements Serializable {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private long idSkier;
 	private int pin;
+	private int cardNumber;
 	private Float credit;
 	private String name;
 	private String lastName;
@@ -116,6 +117,12 @@ public class Skier implements Serializable {
 				+ lastName + ", address=" + address + ", birthday=" + birthday + "]";
 	}
 	
+	public int getCardNumber() {
+		return cardNumber;
+	}
 	
-   
+	public void setCardNumber(int cardNumber) {
+		this.cardNumber = cardNumber;
+	}
+	
 }
