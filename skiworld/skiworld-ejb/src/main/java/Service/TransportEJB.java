@@ -1,5 +1,6 @@
 package Service;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.LocalBean;
@@ -38,5 +39,12 @@ public class TransportEJB implements TransportEJBRemote {
 		return  em.createQuery("SELECT p from Transport p",Transport.class).getResultList();
 	}
 	
-
+	public Transport findTransportById(Long id) {
+		return em.createQuery("SELECT t FROM Transport t WHERE t.idTransport="+id, Transport.class).getSingleResult();
+	}
+	
+	public List<Transport> upcomingTransport() {
+		Date date = new Date();
+		return  em.createQuery("SELECT p from Transport p WHERE p.departureDate > :date AND p.numberPlaces > 0",Transport.class).setParameter("date", date).getResultList();
+	}
 }

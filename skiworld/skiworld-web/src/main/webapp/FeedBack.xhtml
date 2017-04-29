@@ -1,0 +1,53 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:body>
+		<div id="header">
+			<ui:insert name="header">
+				<ui:include src="/template/Header.xhtml" />
+			</ui:insert>
+		</div>
+		<section class="main__middle__container">
+			<div class="titles blog text-left">
+				<div class="container">
+					<div class="seper"></div>
+					<h2 class="page__title">Our Users'</h2>
+					<h2 class="page__title">Feedback</h2>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row no_padding title__block nothing no-margin">
+
+					<ui:repeat value="#{feedbackBean.getAllComments()}" var="cmnt">
+						<span class="dc_pullquote quotes aligncenter"> <h:outputText
+								value="${cmnt.comment}" /> <small> [ <h:outputText
+									value="${cmnt.userAlias}" /> <cite title="User Alias"><h:outputText
+										value="${cmnt.dateComment}" /></cite> ] </small>
+						</span>
+					</ui:repeat>
+				</div>
+				<h:form>
+					<h:commandButton class="btn btn-success"
+						action="#{feedbackBean.showCommentArea()}"
+						value="Give Us Your Opinion">
+						<f:setPropertyActionListener value="true"
+							target="#{feedbackBean.formDisplayed}"></f:setPropertyActionListener>
+					</h:commandButton>
+				</h:form>
+				<ui:insert>
+					<ui:include src="/Comment.xhtml" />
+				</ui:insert>
+			</div>
+		</section>
+
+		<div id="footer">
+			<ui:insert name="footer">
+				<ui:include src="/template/footer.xhtml" />
+			</ui:insert>
+		</div>
+	</h:body>
+
+
+
+</ui:composition>
