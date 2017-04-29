@@ -1,0 +1,67 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<h:body>
+		<div id="header">
+			<ui:insert name="header">
+				<ui:include src="/template/Header.xhtml" />
+			</ui:insert>
+		</div>
+		<section class="main__middle__container">
+			<div class="titles blog text-left">
+				<div class="container">
+					<div class="seper"></div>
+					<h2 class="page__title">Available Means</h2>
+					<h2 class="page__title">Of Transport</h2>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row no_padding title__block nothing no-margin">
+					<table class="dc_table_s9" summary="Means Of Transport"
+						style="width: 100%;">
+						<thead>
+							<tr>
+								<th scope="col">Departure Place</th>
+								<th scope="col">Departure Date</th>
+								<th scope="col">Arrival Place</th>
+								<th scope="col">Arrival Date</th>
+								<th scope="col">Price</th>
+								<th scope="col">Total Places</th>
+							</tr>
+						</thead>
+						<tbody>
+							<ui:repeat value="#{reservationTransportBean.getListTransport()}"
+								var="transport">
+								<tr>
+									<th scope="row"><h:outputText
+											value="${transport.departurePlace}" /></th>
+									<td><h:outputText value="${transport.departureDate}" /></td>
+									<th scope="row"><h:outputText
+											value="${transport.arrivalPlace}" /></th>
+									<td><h:outputText value="${transport.arrivalDate}" /></td>
+									<td><h:outputText value="${transport.price}" /></td>
+									<td><h:outputText value="${transport.numberPlaces}" /></td>
+									<td>
+										<h:form>
+										<h:commandButton class="btn btn-warning" action="#{reservationTransportBean.showForm()}" value="Book It Now  !" />
+										</h:form>
+									</td>
+								</tr>
+							</ui:repeat>
+						</tbody>
+					</table>
+				</div>
+					<ui:insert>
+						<ui:include src="/pages/Transport/form.xhtml" />
+					</ui:insert>
+				</div>
+		</section>
+		<div id="footer">
+			<ui:insert name="footer">
+				<ui:include src="/template/footer.xhtml" />
+			</ui:insert>
+		</div>
+	</h:body>
+</ui:composition>
