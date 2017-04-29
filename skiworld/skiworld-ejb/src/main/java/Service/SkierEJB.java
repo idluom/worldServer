@@ -15,6 +15,7 @@ import Entity.Skier;
  * Session Bean implementation class SkierEJB
  */
 @Stateless
+@LocalBean
 public class SkierEJB implements SkierEJBRemote {
 	@PersistenceContext(unitName="skiworld-ejb")
 	EntityManager em;
@@ -52,5 +53,7 @@ public class SkierEJB implements SkierEJBRemote {
 		return listSkier;
 	}
 	
-	
+	public Skier findSkierByCardNumber(int card) {
+		return (Skier) em.createQuery("SELECT s FROM Skier s where s.cardNumber="+card);
+	}
 }
