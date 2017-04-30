@@ -3,26 +3,33 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 	
+	<h:messages class="alert alert-info" id="messages" showDetail="true" autoUpdate="true" closable="true" />
+	
 	<h:form role="form" class="contact-form" rendered="#{reservationTransportBean.formDisplayed}">
 		
 		<div class="form-group col-md-6">
 			<h:outputText value="Credit Card" />
-			<h:inputText class="form-control" value="#{skierBean.skier.cardNumber}" />
+			<h:inputText class="form-control" value="#{reservationTransportBean.skier.cardNumber}" />
 		</div>
 		<div class="form-group col-md-6">
 			<h:outputText value="PIN" />
-			<h:inputSecret class="form-control" value="#{skierBean.skier.pin}" />
+			<h:inputSecret class="form-control" value="#{reservationTransportBean.skier.pin}" />
 		</div>
 		<div class="form-group col-md-6">
 			<h:outputText value="First Name" />
-			<h:inputText class="form-control" value="#{skierBean.skier.name}" />
+			<h:inputText class="form-control" value="#{reservationTransportBean.skier.name}" />
 		</div>
 		<div class="form-group col-md-6">
 			<h:outputText value="Last Name" />
-			<h:inputText class="form-control" value="#{skierBean.skier.lastName}" />
+			<h:inputText class="form-control" value="#{reservationTransportBean.skier.lastName}" />
+		</div>
+		<div class="form-group col-md-6">
+			<h:outputText value="Number Of Places" />
+			<h:inputText class="form-control" value="#{reservationTransportBean.reservation.nbrePlaces}" />
 		</div>
 		<div class="clearfix"></div>
-			<h:commandButton class="btn btn-success" action="#{skierBean.checkSkier()}" value="Confirm" />
-		
+			<h:commandButton class="btn btn-success" action="#{reservationTransportBean.checkSkier()}" value="Confirm">
+			</h:commandButton>
+			
 	</h:form>
 </ui:composition>

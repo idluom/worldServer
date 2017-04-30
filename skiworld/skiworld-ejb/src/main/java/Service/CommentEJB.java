@@ -13,6 +13,7 @@ import Entity.Comment;
  * Session Bean implementation class CommentEJB
  */
 @Stateless
+@LocalBean
 public class CommentEJB implements CommentEJBRemote {
 
 	@PersistenceContext(unitName = "skiworld-ejb")
