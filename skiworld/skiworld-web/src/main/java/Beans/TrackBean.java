@@ -66,6 +66,10 @@ public class TrackBean {
 		return "Reservation";
 		
 	}
+	
+	public String chat(){
+		return "index2";
+	}
 	//get value from "f:param"
 	public String getCountryParam(FacesContext fc){
 

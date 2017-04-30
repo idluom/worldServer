@@ -27,6 +27,11 @@ public class Track implements Serializable {
 	
 	private String title;
 	private String description;
+	private byte[] image;
+	
+	
+	
+	
 //	@OneToMany(mappedBy="track")
 //	private List<TrackSkier> listTrackSkier;
 
@@ -34,11 +39,12 @@ public class Track implements Serializable {
 		
 	}
 
-	public Track(long id,String difficulty, float length, float price) {
+	public Track(long id,String difficulty, float length, float price,byte[] image) {
 		this.idTrack=id;
 		this.difficulty=difficulty;
 		this.length=length;
 		this.price=price;
+		this.image=image;
 	}
 
 	public long getIdTrack() {
@@ -93,6 +99,18 @@ public class Track implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+
+	public void setIdTrack(long idTrack) {
+		this.idTrack = idTrack;
 	}
 	
 	
