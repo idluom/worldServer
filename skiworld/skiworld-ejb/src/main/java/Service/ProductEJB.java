@@ -1,11 +1,14 @@
 package Service;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import Entity.DayMenu;
 import Entity.Product;
@@ -49,5 +52,19 @@ public class ProductEJB implements ProductEJBRemote {
 	public List<Product> findAllProduct() {
 		return  em.createQuery("SELECT p from Product p",Product.class).getResultList();
 		
+	}
+	public byte[] findPictureByProductName(String productName) {
+		byte[] picture = null;
+		TypedQuery<byte[]> query = em.createQuery(
+				"select p.picture from Product p where p.nameProduct=:x", byte[].class);
+		query.setParameter("x", productName);
+		try {
+			picture = query.getSingleResult();
+		} catch (Exception ex) {
+			Logger.getLogger(this.getClass().getName()).log(Level.INFO,
+					"no picture");
+		}
+		return picture;
+
 	}
 }

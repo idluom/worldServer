@@ -3,12 +3,11 @@ package Entity;
 import java.io.Serializable;
 import java.lang.Integer;
 import java.lang.Long;
+import java.util.List;
+
 import javax.persistence.*;
 
-/**
- * Entity implementation class for Entity: TableRestaurant
- *
- */
+
 @Entity
 
 public class TableRestaurant implements Serializable {
@@ -21,9 +20,17 @@ public class TableRestaurant implements Serializable {
 	@ManyToOne
 	private Restaurant restaurant;
 	private static final long serialVersionUID = 1L;
-
+	@OneToMany (mappedBy="skier")
+	private List <BookingSkierTable> skierList ;
 	public TableRestaurant() {
 	}   
+	
+	/**
+	 * @param seattingCapacity
+	 * @param tableNumber
+	 * @param restaurant
+	 */
+	
 	public Long getIdTable() {
 		return this.idTable;
 	}
@@ -55,6 +62,12 @@ public class TableRestaurant implements Serializable {
 		this.seattingCapacity = seattingCapacity;
 		this.tableNumber = tableNumber;
 		this.restaurant = restaurant;
+	}
+	public TableRestaurant(Integer seattingCapacity, Integer tableNumber) {
+		super();
+		this.seattingCapacity = seattingCapacity;
+		this.tableNumber = tableNumber;
+		
 	}
    
 }

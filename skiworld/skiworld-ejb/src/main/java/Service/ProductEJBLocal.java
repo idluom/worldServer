@@ -2,13 +2,13 @@ package Service;
 
 import java.util.List;
 
-import javax.ejb.Remote;
+import javax.ejb.Local;
 
 import Entity.Product;
 
 
-@Remote
-public interface ProductEJBRemote {
+@Local
+public interface ProductEJBLocal {
 	public void addProduct (Product product);
 	public void deleteProduct (Product product);
 	public void updateProduct (Product product);
