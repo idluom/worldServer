@@ -35,7 +35,7 @@ public class Skier implements Serializable {
 	private List<Trip> Trips;
 	@OneToMany(mappedBy="skier")
 	private List<ReservationSkierRoom> listReservation;
-	
+	private String email;
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -123,6 +123,12 @@ public class Skier implements Serializable {
 	
 	public void setCardNumber(int cardNumber) {
 		this.cardNumber = cardNumber;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 }
