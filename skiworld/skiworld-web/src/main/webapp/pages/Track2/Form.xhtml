@@ -1,0 +1,48 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<h:messages class="alert alert-info" id="messages" showDetail="true"
+		autoUpdate="true" closable="true" />
+
+	<h:form role="form" class="contact-form"
+		rendered="#{reservationTrack.formDisplayed}">
+		 <div class="container text-center">
+      <h1>Reservation for #{reservationTrack.track.title}</h1>
+      <p class="big-paragraph">#{reservationTrack.track.difficulty}</p>
+    </div>
+		
+		<div class="form-group col-md-6">
+			<h:outputText value="Credit Card" />
+			<h:inputText class="form-control"
+				value="#{reservationTrack.skier.cardNumber}" />
+		</div>
+		<div class="form-group col-md-6">
+			<h:outputText value="PIN" />
+			<h:inputSecret class="form-control"
+				value="#{reservationTrack.skier.pin}" />
+		</div>
+		<div class="form-group col-md-6">
+			<h:outputText value="First Name" />
+			<h:inputText class="form-control"
+				value="#{reservationTrack.skier.name}" />
+		</div>
+		<div class="form-group col-md-6">
+			<h:outputText value="Last Name" />
+			<h:inputText class="form-control"
+				value="#{reservationTrack.skier.lastName}" />
+		</div>
+		<div class="form-group col-md-6">
+			<h:outputText value="Number Of Places" />
+			<h:inputText class="form-control"
+				value="#{reservationTrack.reservation.nbrePlaces}" />
+		</div>
+		<div class="clearfix"></div>
+		<h:commandButton class="btn btn-success"
+			action="#{reservationTrack.checkSkier()}" value="Confirm">
+		</h:commandButton>
+
+	</h:form>
+
+</ui:composition>

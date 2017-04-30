@@ -8,12 +8,25 @@
 				<ui:include src="/template/Header.xhtml" />
 			</ui:insert>
 		</div>
+		<section class="main__middle__container">
+			<div class="titles blog text-left">
+				<div class="container">
+					<div class="seper"></div>
+					<h2 class="page__title">SkiWorld</h2>
+					<h2 class="page__title">Your Adventure Begins Now</h2>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row no_padding title__block nothing no-margin">
 
-		<div id="content">
-			<ui:insert name="pageContent"></ui:insert>
-		</div>
-
-
+<!-- 	START OF WORK      -->
+					<div id="content">
+						<ui:insert name="pageContent"></ui:insert>
+					</div>
+<!-- 	END OF WORK		   -->
+				</div>
+			</div>
+		</section>
 		<div id="footer">
 			<ui:insert name="footer">
 				<ui:include src="/template/footer.xhtml" />

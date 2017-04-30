@@ -3,6 +3,7 @@ package Service;
 
 import java.util.List;
 
+import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 
 import javax.persistence.EntityManager;
@@ -14,7 +15,7 @@ import Entity.Track;
  * Session Bean implementation class TrackEJB
  */
 @Stateless
-
+@LocalBean
 public class TrackEJB implements TrackEJBRemote{
 	@PersistenceContext(unitName="skiworld-ejb") // persistance.xml src/main/resources
 	EntityManager em;

@@ -1,0 +1,17 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                
+                xmlns:p="http://primefaces.org/ui">
+               <h:form role="form" class="contact-form" rendered="#{tripBean.formDisplayed}">
+		
+		<div class="form-group col-md-6">
+			<h:outputText value="Card Number" />
+			<h:inputText class="form-control" value="#{skierBean.skier.cardNumber}" />
+		</div>
+		<div class="clearfix"></div>
+			<h:commandButton class="btn btn-success" action="#{skierBean.checkSkier()}" value="Confirm" />
+		
+	</h:form>
+</ui:composition>

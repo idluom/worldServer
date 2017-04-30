@@ -1,0 +1,61 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/template/tst.xhtml">
+	<ui:define name="title">Track</ui:define>
+	<ui:define name="pageContent">
+
+		<ui:insert>
+			<ui:include src="/pages/Track2/Form.xhtml" />
+		</ui:insert>
+		<ui:repeat value="#{trackBean.doAfficherListTrack()}" var="track">
+			<section class="recent-posts">
+				<div class="container">
+					<div class="row no-margin nothing">
+						<div class="col-md-9 ">
+							<article>
+								<img src="../../ressources/images/big_line_bg.jpg" alt="pic1"
+									class="pull-left img-responsive"> </img>
+								<div class="text">
+									<p class="small-paragraph">
+										<h:outputText value="#{track.title}" />
+										<br />
+									</p>
+
+									Difficulty :
+									<h:outputText value="#{track.difficulty}" />
+									<p>
+										Description:
+										<h:outputText value="#{track.description}" />
+									</p>
+									<p>
+										Price :
+										<h:outputText value="${track.price}" />
+									</p>
+									<h3>
+										<h:form>
+											<small> <h:commandButton
+													action="#{reservationTrack.showForm()}" value="Read More"
+													class="btn btn-warning">
+													<f:setPropertyActionListener value="#{track}"
+														target="#{reservationTrack.track}"></f:setPropertyActionListener>
+												</h:commandButton>
+
+											</small>
+										</h:form>
+									</h3>
+								</div>
+
+							</article>
+
+						</div>
+
+					</div>
+				</div>
+			</section>
+
+		</ui:repeat>
+		
+	</ui:define>
+</ui:composition>

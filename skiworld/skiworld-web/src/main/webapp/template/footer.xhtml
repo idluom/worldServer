@@ -4,7 +4,7 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 >
                 <html>
-                <boby>	
+                <body>	
 			<footer>
   <div class="container">
     <div class="row">
@@ -25,13 +25,13 @@
         <h3>Mailing list</h3>
         <p>Subscribe to our mailing list for offers, news updates and more!</p>
         <br />
-        <form action="#" method="post" class="form-inline" role="form">
+        <h:form class="form-inline" role="form">
           <div class="form-group">
-            <label class="sr-only" for="exampleInputEmail2">your email</label>
-            <input type="email" class="form-control form-control-lg" id="exampleInputEmail2" placeholder="your email"/>
+            <label class="sr-only" for="exampleInputEmail2">Your email</label>
+            <h:inputText class="form-control form-control-lg" value="#{newsletterBean.newsletter.userMail}" />
           </div>
-          <button type="submit" class="btn btn-primary btn-md">subscribe</button>
-        </form>
+          <h:commandButton class="btn btn-primary btn-md" action="#{newsletterBean.addUserToList()}" value="SUBSCRIBE" />
+        </h:form>
       </div>
       <div class="col-md-3">
         <h3>Social</h3>
@@ -68,6 +68,6 @@ $( "ul li.dropdown ul" ).slideToggle( "normal", function() {
 $('ul li.dropdown').toggleClass('current');
 });
 </script>
-</boby>
+</body>
 </html>
 </ui:composition>

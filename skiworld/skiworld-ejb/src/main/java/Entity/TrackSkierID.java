@@ -12,49 +12,42 @@ import javax.persistence.*;
 public class TrackSkierID implements Serializable {
 
 	
-	private long idSkierPK;
-	private long idTrackPK;
+	private Long idSkierPK;
+	private Long idTrackPK;
 	private static final long serialVersionUID = 1L;
 
 	public TrackSkierID() {
-		super();
+		
 	}   
-	public long getIdSkierPK() {
-		return this.idSkierPK;
+	
+
+	public Long getIdSkierPK() {
+		return idSkierPK;
 	}
 
-	public void setIdSkierPK(long idSkierPK) {
+	public void setIdSkierPK(Long idSkierPK) {
 		this.idSkierPK = idSkierPK;
-	}   
-	public long getIdTrackPK() {
-		return this.idTrackPK;
 	}
 
-	public void setIdTrackPK(long idTrackPK) {
+
+	public Long getIdTrackPK() {
+		return idTrackPK;
+	}
+
+
+	public void setIdTrackPK(Long idTrackPK) {
 		this.idTrackPK = idTrackPK;
 	}
+
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + (int) (idSkierPK ^ (idSkierPK >>> 32));
-		result = prime * result + (int) (idTrackPK ^ (idTrackPK >>> 32));
-		return result;
+		
+		return super.hashCode();
 	}
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		TrackSkierID other = (TrackSkierID) obj;
-		if (idSkierPK != other.idSkierPK)
-			return false;
-		if (idTrackPK != other.idTrackPK)
-			return false;
-		return true;
+	
+		return super.equals(obj);
 	}
    
 }
