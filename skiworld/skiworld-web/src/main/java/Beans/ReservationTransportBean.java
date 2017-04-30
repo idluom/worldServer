@@ -23,18 +23,17 @@ import Service.TransportEJB;
 public class ReservationTransportBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private Skier skier = new Skier();
-
 	@EJB
 	private SkierEJB skierEJB = new SkierEJB();
 	@EJB
 	private ReservationTransportEJB res = new ReservationTransportEJB();
 	@EJB
-	private TransportEJB transportEJB;
+	private TransportEJB transportEJB = new TransportEJB();
 
 	private ReservationTransport reservation = new ReservationTransport();
 	private boolean formDisplayed = false;
 	private Transport transport = new Transport();
+	private Skier skier = new Skier();
 
 	public ReservationTransportBean() {
 
