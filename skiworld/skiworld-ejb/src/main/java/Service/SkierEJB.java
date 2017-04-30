@@ -54,6 +54,6 @@ public class SkierEJB implements SkierEJBRemote {
 	}
 	
 	public Skier findSkierByCardNumber(int card) {
-		return (Skier) em.createQuery("SELECT s FROM Skier s where s.cardNumber="+card);
+		return em.createQuery("SELECT s FROM Skier s where s.cardNumber="+card, Skier.class).getSingleResult();
 	}
 }
