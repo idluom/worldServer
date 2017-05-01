@@ -2,9 +2,12 @@ package Beans;
 
 import java.io.Serializable;
 
+
 import javax.faces.application.FacesMessage;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import javax.annotation.PostConstruct;
@@ -20,6 +23,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import org.primefaces.context.RequestContext;
 import org.primefaces.event.SelectEvent;
 import org.primefaces.event.TransferEvent;
 import org.primefaces.event.UnselectEvent;
@@ -46,11 +50,10 @@ public class TripBean implements Serializable {
 	ReservationTripRemote reservation;
 	@EJB
 	SkierEJBRemote skierRemote;
-	
+	String Video;
 	ReservationTrip reservationTrip = new ReservationTrip();
 	Trip trip = new Trip();
 	static Trip strip = new Trip();
-	private DualListModel<String> cities;
 	private boolean formDisplayed = false;
 	public TripBean() {
 		super();
@@ -70,36 +73,35 @@ public class TripBean implements Serializable {
 		msg.setSeverity(FacesMessage.SEVERITY_INFO);
 		msg.setSummary("Items Transferred");
 		msg.setDetail(builder.toString());
-		
 
 		FacesContext.getCurrentInstance().addMessage(null, msg);
-		List<String> citiesSource = new ArrayList<String>();
-		List<String> citiesTarget = new ArrayList<String>();
-
-		citiesSource.add("San Francisco");
-		citiesSource.add("London");
-		citiesSource.add("Paris");
-		citiesSource.add("Istanbul");
-		citiesSource.add("Berlin");
-		citiesSource.add("Barcelona");
-		citiesSource.add("Rome");
-
-		setCities(new DualListModel<String>(citiesSource, citiesTarget));
+		
 	}
 
 	public String doRegister() {
 		setFormDisplayed(true);
 		setStrip(trip);
 		
-		System.out.println(" aaaaaaaaaaaaaa dddddddddddd ");
-		
+		String s= trip.getVideo().substring(32,trip.getVideo().length());
+		String v = "//www.youtube.com/v/"+s+"?color2=FBE9EC&amp;loop=1&amp;playlist=-KCBLA-fuVw&amp;version=3";
+		System.out.println(v);
+		setVideo(v);
 		///Login?faces-redirect=true
-		System.out.println("ffffffffffffff   "+trip.getDescription());
+
 		Subscribe();
 		
         return "";
 	}
 	
+	
+	public String doWatch()
+	{
+		String s= trip.getVideo().substring(32,trip.getVideo().length());
+		String v = "//www.youtube.com/v/"+s+"?color2=FBE9EC&amp;loop=1&amp;playlist=-KCBLA-fuVw&amp;version=3";
+		System.out.println("vvvvv  "+v);
+		setVideo(v);
+		return "Video?faces-redirect=true";
+	}
 
 	public void Subscribe() {
 		FacesMessage message;
@@ -118,22 +120,6 @@ public class TripBean implements Serializable {
 
 	public void setFr(List<Trip> fr) {
 		this.fr = fr;
-	}
-
-	public DualListModel<String> getCities() {
-		return cities;
-	}
-
-	public void setCities(DualListModel<String> cities) {
-		this.cities = cities;
-	}
-
-	public List<String> getCitiesSource() {
-		return citiesSource;
-	}
-
-	public void setCitiesSource(List<String> citiesSource) {
-		this.citiesSource = citiesSource;
 	}
 
 	public boolean isFormDisplayed() {
@@ -166,6 +152,14 @@ public class TripBean implements Serializable {
 
 	public static void setStrip(Trip strip) {
 		TripBean.strip = strip;
+	}
+
+	public String getVideo() {
+		return Video;
+	}
+
+	public void setVideo(String video) {
+		Video = video;
 	} 
 
 	
