@@ -62,6 +62,7 @@ public class FeedbackBean implements Serializable{
 	}
 	
 	public String postComment() {
+		
 		comment.setDateComment(new Date());
 		cmntEJB.addComment(comment);
 		return "FeedBack";
