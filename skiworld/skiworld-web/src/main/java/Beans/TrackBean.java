@@ -22,7 +22,7 @@ public class TrackBean {
 	private TrackEJBRemote trackEJBRemote ;
 	
 	private List<Track> list;
-	private RepeatPaginator paginator;
+//	private RepeatPaginator paginator;
 	private Track track = new Track();
 	private List<Track> listTrack = new ArrayList<Track>();
 	private List<Track> list2 = new ArrayList<Track>();
@@ -55,9 +55,6 @@ public class TrackBean {
 		
 		list2 = trackEJBRemote.findAll();
 		return list2;
-
-		//paginator = new RepeatPaginator(list);
-		
 		
 	}
 	public String DoReservation(){
@@ -78,9 +75,9 @@ public class TrackBean {
 
 	}
 	
-	public RepeatPaginator getPaginator() {
-		return paginator;
-	}
+//	public RepeatPaginator getPaginator() {
+//		return paginator;
+//	}
 
 
 	public List<Track> getList() {
@@ -95,8 +92,8 @@ public class TrackBean {
 	public void setList2(List<Track> list2) {
 		this.list2 = list2;
 	}
-	public void setPaginator(RepeatPaginator paginator) {
-		this.paginator = paginator;
-	}
+//	public void setPaginator(RepeatPaginator paginator) {
+//		this.paginator = paginator;
+//	}
 	
 }

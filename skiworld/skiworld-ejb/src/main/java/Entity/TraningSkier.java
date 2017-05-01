@@ -21,11 +21,13 @@ public class TraningSkier implements Serializable {
 	@JoinColumn(name="idSkierPK",insertable=false,updatable=false)
 
 	private Skier skier;
+	private int nbrePlaces;
 	private static final long serialVersionUID = 1L;
 
 	public TraningSkier() {
-		super();
+		TrainingSkierID = new TrainingSkierID();
 	}   
+	
 	public TrainingSkierID getTrainingSkierID() {
 		return this.TrainingSkierID;
 	}
@@ -38,6 +40,7 @@ public class TraningSkier implements Serializable {
 	}
 
 	public void setTraining(Training training) {
+		TrainingSkierID.setIdTrainingPK(training.getIdTraining());
 		this.training = training;
 	}   
 	public Skier getSkier() {
@@ -45,7 +48,14 @@ public class TraningSkier implements Serializable {
 	}
 
 	public void setSkier(Skier skier) {
+		TrainingSkierID.setIdSkierPK(skier.getIdSkier());
 		this.skier = skier;
+	}
+	public int getNbrePlaces() {
+		return nbrePlaces;
+	}
+	public void setNbrePlaces(int nbrePlaces) {
+		this.nbrePlaces = nbrePlaces;
 	}
    
 }
