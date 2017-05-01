@@ -1,7 +1,9 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
 	<h:body>
 		<div id="header">
 			<ui:insert name="header">
@@ -15,20 +17,27 @@
 					<h2 class="page__title">Our Users'</h2>
 					<h2 class="page__title">Feedback</h2>
 				</div>
-			</div>
+			</div>      
 			<div class="container">
 				<div class="row no_padding title__block nothing no-margin">
 
-					<ui:repeat value="#{feedbackBean.getAllComments()}" var="cmnt">
-						<span class="dc_pullquote quotes aligncenter"> <h:outputText
-								value="${cmnt.comment}" /> <small> [ <h:outputText
-									value="${cmnt.userAlias}" /> <cite title="User Alias"><h:outputText
-										value="${cmnt.dateComment}" /></cite> ] </small>
-						</span>
-					</ui:repeat>
+
+
+					<p:dataTable class="dc_table_s3" value="#{feedbackBean.getAllComments()}" var="cmnts"
+						paginator="true" rows="10"
+						paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+						rowsPerPageTemplate="5,10,15">
+						<p:column>
+							<span class="dc_pullquote quotes aligncenter"> <h:outputText
+									value="#{cmnts.comment}" /> <small> [ <h:outputText
+										value="#{cmnts.userAlias}" /> <cite title="User Alias"><h:outputText
+											value="#{cmnts.dateComment}" /></cite> ] </small>						
+							</span>
+						</p:column>
+					</p:dataTable>
 				</div>
 				<h:form>
-					<h:commandButton class="btn btn-success"
+					<h:commandButton class="btn btn-lg btn-info"
 						action="#{feedbackBean.showCommentArea()}"
 						value="Give Us Your Opinion">
 						<f:setPropertyActionListener value="true"
@@ -38,9 +47,9 @@
 				<ui:insert>
 					<ui:include src="/Comment.xhtml" />
 				</ui:insert>
+				
 			</div>
 		</section>
-
 		<div id="footer">
 			<ui:insert name="footer">
 				<ui:include src="/template/footer.xhtml" />

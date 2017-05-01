@@ -24,6 +24,7 @@ public class Product implements Serializable {
 	private Float productPrice;
 	private String category;
 	private String type;
+	private byte[] picture;
 	@ManyToOne
 	private DayMenu menu;
 	private static final long serialVersionUID = 1L;
@@ -56,6 +57,27 @@ public class Product implements Serializable {
 		this.productPrice = productPrice;
 		this.category = category;
 		this.type = type;
+		this.menu = menu;
+	}
+
+	/**
+	 * @param idProduct
+	 * @param nameProduct
+	 * @param productPrice
+	 * @param category
+	 * @param type
+	 * @param picture
+	 * @param menu
+	 */
+	public Product(Long idProduct, String nameProduct, Float productPrice, String category, String type, byte[] picture,
+			DayMenu menu) {
+		super();
+		this.idProduct = idProduct;
+		this.nameProduct = nameProduct;
+		this.productPrice = productPrice;
+		this.category = category;
+		this.type = type;
+		this.picture = picture;
 		this.menu = menu;
 	}
 
@@ -102,6 +124,14 @@ public class Product implements Serializable {
 	@Override
 	public String toString() {
 		return "Product [nameProduct=" + nameProduct + ", category=" + category + ", type=" + type +  "]";
+	}
+
+	public byte[] getPicture() {
+		return picture;
+	}
+
+	public void setPicture(byte[] picture) {
+		this.picture = picture;
 	}
 	
 }

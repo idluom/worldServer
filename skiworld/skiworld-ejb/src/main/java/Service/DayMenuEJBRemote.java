@@ -17,4 +17,5 @@ public interface DayMenuEJBRemote {
 	public DayMenu findMenuById (Long idMenu);
 	public DayMenu findMenuByDate (Date d);
 	void deleteMenu2(DayMenu menu);
+	public float dayMenuPrice (DayMenu d);
 }

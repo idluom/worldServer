@@ -17,4 +17,5 @@ public interface TrackEJBRemote {
 	public Track findTrackById(Long idTrack);
 	public List<Track> findAll();
 	public Track findTrackByDiff(String diff);
+	public byte[] findPictureByTrackTitle(String productName);
 }

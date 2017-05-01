@@ -1,0 +1,92 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://richfaces.org/a4j" xmlns:p1="http://primefaces.org/ui">
+	<link href="../../ressources/css/style.css" rel="stylesheet"></link>
+	<link href="../../ressources/css/bootstrap.min.css" rel="stylesheet"></link>
+	<link rel="stylesheet" type="text/css"
+		href="../../ressources/shortcodes/shortcodes.css"></link>
+
+	<p:outputPanel deferred="true">
+		<h3 align="center">Welcome To Our Restaurant And Bar</h3>
+		<h6 align="center">Ski World Restaurant and Bar is a restaurant
+and bar destined to ski world guests</h6>
+	</p:outputPanel>
+	<center>
+		<h:graphicImage value="/ressources/images/skiRest.jpg" />
+	</center>
+	<a style="margin-left: 75%;" href="../../BookingFormRest.jsf"
+		class="dc_pixel_button lightbg-pink">Book your Table NOW !</a>
+
+
+	<p:outputPanel deferred="true" deferredMode="visible">
+		<h3 style="margin-left: 25%; margin-right: 25px;">Our Menu</h3>
+	</p:outputPanel>
+	<div style="margin-left: 25%; margin-right: 25%">
+		<ul style="list-style: none;">
+			<ui:repeat style="border:solid; border: 1px ; border-color: red; "
+				value="#{menuRestaurantBean.products}" var="prod">
+				<p:layout style="min-width:400px;min-height:200px;">
+					<p:layoutUnit position="west" resizable="true" size="100"
+						minSize="40" maxSize="200">
+						<p1:graphicImage  width="80px" height="80px" id="product_image"
+							value="#{productImageBean.image}" cache="true"
+							styleClass="editor-picture">
+							<f:param name="productName" value="#{prod.nameProduct}" />
+						</p1:graphicImage>
+					</p:layoutUnit>
+
+					<p:layoutUnit position="center">
+						<li><p:outputPanel>
+								<h:outputText
+									style="font-weight:bolder;font-size:25px;color:black"
+									value="#{prod.nameProduct}" />   ...........................................................................
+							<h:outputText value="#{prod.productPrice}"
+									style="font-weight: bold" />
+								<br />
+								<h:outputText value="#{prod.type}" style="font-weight: bold" />
+							</p:outputPanel></li>
+					</p:layoutUnit>
+				</p:layout>
+
+				<hr />
+			</ui:repeat>
+		</ul>
+	</div>
+		<p:outputPanel deferred="true" deferredMode="visible">
+			<h3 style="margin-left: 25%; margin-right: 25px;">Our Daily Menu</h3>
+			<h:outputText value="#{menuRestaurantBean.price}" />
+		</p:outputPanel>
+	<div style="margin-left: 25%; margin-right: 25%">
+		<ul style="list-style: none;">
+			<ui:repeat style="border:solid; border: 1px ; border-color: red; "
+				value="#{menuRestaurantBean.daymenu.dayMenuList}" var="day">
+				<p:layout style="min-width:400px;min-height:200px;">
+					<p:layoutUnit position="west" resizable="true" size="100"
+						minSize="40" maxSize="200">
+						<p1:graphicImage  width="80px" height="80px" id="product_image"
+							value="#{productImageBean.image}" cache="true"
+							styleClass="editor-picture">
+							<f:param name="productName" value="#{day.nameProduct}" />
+						</p1:graphicImage>
+					</p:layoutUnit>
+
+					<p:layoutUnit position="center">
+						<li><p:outputPanel>
+								<h:outputText
+									style="font-weight:bolder;font-size:25px;color:black"
+									value="#{day.nameProduct}" />   ...........................................................................
+							
+								<br />
+								<h:outputText value="#{day.type}" style="font-weight: bold" />
+							</p:outputPanel></li>
+					</p:layoutUnit>
+				</p:layout>
+
+				<hr />
+			</ui:repeat>
+		</ul>
+	</div>
+
+</ui:composition>

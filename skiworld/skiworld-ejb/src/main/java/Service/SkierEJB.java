@@ -10,6 +10,7 @@ import javax.persistence.PersistenceContext;
 
 import Entity.Events;
 import Entity.Skier;
+import Entity.Trip;
 
 /**
  * Session Bean implementation class SkierEJB
@@ -56,4 +57,6 @@ public class SkierEJB implements SkierEJBRemote {
 	public Skier findSkierByCardNumber(int card) {
 		return em.createQuery("SELECT s FROM Skier s where s.cardNumber="+card, Skier.class).getSingleResult();
 	}
+
+	
 }

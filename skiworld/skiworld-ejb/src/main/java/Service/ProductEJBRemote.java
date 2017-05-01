@@ -14,4 +14,5 @@ public interface ProductEJBRemote {
 	public void updateProduct (Product product);
 	public Product displayProductById (Long idProduct);
 	public List<Product> findAllProduct() ;
+	public byte[] findPictureByProductName(String productName);
 }

@@ -1729,3 +1729,17 @@ h1.page_title {
 	padding: 0;
 	width: 100%
 }
+#messages {
+    width: 375px;
+    margin: 0 auto;
+    border: 1px black solid;
+    border-collapse: collapse;
+}
+#messages .info td {
+    background: url('info.gif') no-repeat left center;
+    padding-left: 15px;
+}
+#messages .error td {
+    background: url('error.gif') no-repeat left center;
+    padding-left: 15px;
+}
