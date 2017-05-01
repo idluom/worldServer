@@ -4,13 +4,11 @@ import java.io.Serializable;
 
 
 
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 
@@ -19,7 +17,7 @@ public class Track implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	private Long idTrack;
+	private long idTrack;
 	
 	private float length;
 	
@@ -29,17 +27,24 @@ public class Track implements Serializable {
 	
 	private String title;
 	private String description;
-	@OneToMany(mappedBy="track")
-	private List<TrackSkier> listTrackSkier;
+	private byte[] image;
+	
+	
+	
+	
+//	@OneToMany(mappedBy="track")
+//	private List<TrackSkier> listTrackSkier;
 
 	public Track(){
 		
 	}
 
-	public Track(String difficulty, float length, float price) {
+	public Track(long id,String difficulty, float length, float price,byte[] image) {
+		this.idTrack=id;
 		this.difficulty=difficulty;
 		this.length=length;
 		this.price=price;
+		this.image=image;
 	}
 
 	public long getIdTrack() {
@@ -94,6 +99,18 @@ public class Track implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+
+	public void setIdTrack(long idTrack) {
+		this.idTrack = idTrack;
 	}
 	
 	

@@ -22,6 +22,10 @@ public class Training implements Serializable {
 	private String description;
 	private Date begeningDate;
 	private Date endDate;
+	private int number;
+	private Float price;
+	private String level;
+	
 	public String getTitle() {
 		return title;
 	}
@@ -34,9 +38,6 @@ public class Training implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	private int number;
-	private Float price;
-	private String level;
 	
 	
 	@OneToMany(mappedBy="training")

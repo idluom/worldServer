@@ -1,0 +1,39 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://richfaces.org/a4j" xmlns:p1="http://primefaces.org/ui">
+	<link href="../../ressources/css/style.css" rel="stylesheet"></link>
+	<link href="../../ressources/css/bootstrap.min.css" rel="stylesheet"></link>
+	<link rel="stylesheet" type="text/css"
+		href="../../ressources/shortcodes/shortcodes.css"></link>
+	<ui:define name="title">Ski World Restaurant</ui:define>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<h3>Welcome To Our Restaurant And Bar</h3>
+				<h6>
+					Ski World Restaurant and Bar is a restaurant and bar destined to
+					ski world guests <br /> <br /> BOOK YOUR TABLE NOW WITHIN A
+					CLICK.
+				</h6>
+			</div>
+		</div>
+	</div>
+	
+	<h:form id="form">
+    <p1:growl id="msgs" showDetail="true" />
+ 
+    <h:panelGrid columns="2" cellpadding="5">
+        <h:outputLabel  for="bookDate" value="Book Date" />
+        <p1:calendar id="bookDate" value="#{bookingTableBean.bookingSkierTable.bookDate}" mindate="#{bookingTableBean.dateNow}" effect="fold" >
+        <f:convertDateTime pattern="dd/MM/yyyy"  /></p1:calendar>
+        <p1:outputLabel for="time" value="Time:" />
+        <p1:calendar id="time" value="#{bookingTableBean.bookingSkierTable.bookTime}" pattern="HH:mm" timeOnly="true"  minHour="7" maxHour="22" stepMinute="15"/>
+     <h:commandButton value="Submit" update="msgs" actionListener="#{bookingTableBean.click()}" icon="ui-icon-check" />
+     <h:outputText value="#{bookingTableBean.bookingSkierTable.bookDate}" ><f:convertDateTime pattern="dd/MM/yyyy"  /></h:outputText>
+     <h:outputText value="#{bookingTableBean.bookingSkierTable.bookTime}"><f:convertDateTime pattern="HH:mm"  /></h:outputText>
+     </h:panelGrid>
+     </h:form>
+    
+</ui:composition>

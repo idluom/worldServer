@@ -6,13 +6,14 @@ import java.util.Date;
 
 import java.util.List;
 
+import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import Entity.Training;
 
-
+@LocalBean
 @Stateless
 public class TrainingEJB implements TrainingEJBRemote {
 	@PersistenceContext(unitName="skiworld-ejb")

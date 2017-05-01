@@ -8,6 +8,7 @@ import java.util.List;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 import Entity.DayMenu;
@@ -65,9 +66,14 @@ public class DayMenuEJB implements DayMenuEJBRemote {
 		SimpleDateFormat simpleDateformat = new SimpleDateFormat("yyyy-MM-dd");
 		System.out.println(simpleDateformat.format(d));
 		try {
-			Date dt = simpleDateformat.parse(simpleDateformat.format(d));
+			try {
+				Date dt = simpleDateformat.parse(simpleDateformat.format(d));
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			return em.createQuery("select p from DayMenu p where p.dayMenuDate like '"+simpleDateformat.format(d)+"%'",DayMenu.class).getSingleResult();
-		} catch (Exception e) {
+		} catch (NoResultException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
@@ -84,6 +90,13 @@ public class DayMenuEJB implements DayMenuEJBRemote {
 		
 		}
 		em.remove(em.merge(menu));
+	}
+	public float dayMenuPrice (DayMenu d){
+		float pr=0;
+		for (Product p : d.getDayMenuList()) {
+			pr+=p.getProductPrice()*0.8;
+		}
+		return pr;
 	}
 	
 }
