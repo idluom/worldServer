@@ -24,6 +24,8 @@ public class TrackSkier implements Serializable {
 	private Skier skier;
 	private int nbrePlaces;
 	private Date dateReservation;
+	private String firstName;
+	private String lastName;
 	public TrackSkier(){
 		TrackSkierID = new TrackSkierID();
 	}
@@ -32,10 +34,31 @@ public class TrackSkier implements Serializable {
 	/*
 	 * Getters et Setters
 	 */
+	
 	public Date getDateReservation() {
 		return dateReservation;
 	}
 
+
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+
+	public String getLastName() {
+		return lastName;
+	}
+
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 
 
 	public void setDateReservation(Date dateReservation) {

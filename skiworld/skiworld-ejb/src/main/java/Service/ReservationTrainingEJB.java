@@ -1,10 +1,13 @@
 package Service;
 
+import java.util.List;
+
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import Entity.Training;
 import Entity.TraningSkier;
 
 /**
@@ -26,6 +29,11 @@ public class ReservationTrainingEJB implements ReservationTrainingEJBRemote {
 	public void addReservationTraining(TraningSkier reservation) {
 		em.persist(reservation);
 		
+	}
+	@Override
+	public List<Training> showmyReservation(int pin) {
+		
+		return null;
 	}
 
 }

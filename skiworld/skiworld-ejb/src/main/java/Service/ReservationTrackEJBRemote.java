@@ -10,5 +10,5 @@ import Entity.TrackSkier;
 @Remote
 public interface ReservationTrackEJBRemote {
 	public void addReservationTrack(TrackSkier reservation);
-	public List<TrackSkier> checkReservation(int idTrack,Date date);
+	public List<TrackSkier> checkReservation(long idTrack,Date date);
 }

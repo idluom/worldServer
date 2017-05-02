@@ -37,14 +37,14 @@ public class ReservationTrackEJB implements ReservationTrackEJBRemote{
 	 * Methode pour verifier si a une date données,il ya des place pour la track ou pas
 	 */
 	@Override
-	public List<TrackSkier> checkReservation(int idTrack,Date date) {
+	public List<TrackSkier> checkReservation(long idTrack,Date date) {
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 //		SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 //		Long i;
 //		i = (Long) em.createQuery("Select count(*) from Events e where e.date like '" + sdf.format(date) + "%'")
 //				.getSingleResult();
-		return em.createQuery("select p from TrackSkier p where p.dateReservation like '" +sdf.format(date)+"%'",TrackSkier.class ).getResultList();
+		return em.createQuery("select p from TrackSkier p where p.dateReservation like '" +sdf.format(date)+"'",TrackSkier.class ).getResultList();
 		
 	}
 	

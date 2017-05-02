@@ -14,55 +14,89 @@
 			<p class="big-paragraph">#{reservationTrack.track.difficulty}</p>
 		</div>
 
+		<!-- 			<h:inputText id="formLogin" value="#{registerBean.customer.login}" -->
+		<!-- 					required="true" requiredMessage="vous devez indiquer un nom"> -->
+		<!-- 					<f:ajax event="blur" render="msglogin" /> -->
+		<!-- 				</h:inputText> -->
+		<!-- 				<h:message id="msglogin" for="formLogin" /> -->
+
+
+
 		<div class="form-group col-md-6">
 			<p:watermark value="Credit Card" for="Card"></p:watermark>
 			<h:outputText value="Credit Card" />
 			<h:inputText class="form-control"
-				value="#{reservationTrack.skier.cardNumber}" id="Card" />
+				value="#{reservationTrack.skier.cardNumber}" id="Card"
+				required="true" requiredMessage="Credit Card : champs obligatoire">
+				<!-- 				<f:ajax event="blur" render="msgCard"/> -->
+			</h:inputText>
+			<h:message id="msgCard" for="Card" />
 		</div>
 		<div class="form-group col-md-6">
+			<p:watermark value="PIN" for="pin"></p:watermark>
 			<h:outputText value="PIN" />
 			<h:inputSecret class="form-control"
-				value="#{reservationTrack.skier.pin}" />
+				value="#{reservationTrack.skier.pin}" id="pin" required="true"
+				requiredMessage="PIN : Champs Obligatoire">
+
+			</h:inputSecret>
+			<h:messages for="pin" id="msgPin" />
 		</div>
 		<div class="form-group col-md-6">
+			<p:watermark value="First Name" for="nom"></p:watermark>
 			<h:outputText value="First Name" />
-			<h:inputText class="form-control"
-				value="#{reservationTrack.skier.name}" />
+			<h:inputText class="form-control" id="nom"
+				value="#{reservationTrack.reservation.firstName}" />
 		</div>
 		<div class="form-group col-md-6">
+			<p:watermark value="Last Name" for="prenom"></p:watermark>
 			<h:outputText value="Last Name" />
 			<h:inputText class="form-control"
-				value="#{reservationTrack.skier.lastName}" />
+				value="#{reservationTrack.reservation.lastName}" id="prenom" />
 		</div>
 		<div class="form-group col-md-6">
+			<p:watermark value="Number of places" for="Number"></p:watermark>
 			<h:outputText value="Number Of Places" />
 			<h:inputText class="form-control"
-				value="#{reservationTrack.reservation.nbrePlaces}" />
+				value="#{reservationTrack.reservation.nbrePlaces}" id="Number"
+				required="true"
+				requiredMessage="Number Of Places : CHamps Obligatoire">
+				<h:message for="Number" id="msgNumber" />
+			</h:inputText>
 		</div>
 		<div class="form-group col-md-6">
+			<p:watermark value="Address" for="Address"></p:watermark>
 			<h:outputText value="Address" />
-			<h:inputText class="form-control"
-				 />
+			<h:inputText id="Address" class="form-control" />
 		</div>
-		
-			<!-- 			<h:outputText value="Date" /> -->
-			<!-- 			<h:inputText class="form-control" -->
-			<!-- 				value="#{reservationTrack.reservation.dateReservation}" id="date"> -->
-			<!-- 				<f:param name="date"></f:param> -->
-			<!-- 				<f:convertDateTime pattern="yyyy-mm-dd" />  -->
-			<!-- 			</h:inputText> -->
-			
-			<p:watermark value="Date" for="event"></p:watermark>
-			<p:growl id="msgs" showDetail="true" />
-			<p:calendar id="event"
-				value="#{reservationTrack.reservation.dateReservation}">
-				<p:ajax event="dateSelect"
-					listener="#{reservationTrack.onDateSelect}" update="msgs" />
-			</p:calendar>
+
+<!-- 					<h:outputText value="Date" /> -->
+<!-- 					<h:inputText class="form-control" -->
+<!-- 						value="#{reservationTrack.reservation.dateReservation}" id="date"> -->
+<!-- 						<f:param name="date"></f:param> -->
+<!-- 						<f:convertDateTime pattern="yyyy-MM-dd" />  -->
+<!-- 					</h:inputText> -->
+
+		<p:watermark value="Date" for="event"></p:watermark>
+		<p:growl id="msgs" showDetail="true" />
+		<p:calendar id="event"
+			value="#{reservationTrack.reservation.dateReservation}">
+			<p:ajax event="dateSelect"
+				listener="#{reservationTrack.onDateSelect}" update="msgs" />
+		</p:calendar>
+		<p:dialog modal="true" resizable="false" header="Values"
+			widgetVar="dlg" showEffect="fold">
+			<p:panelGrid id="display" columns="2" columnClasses="label,value">
+				<h:outputText value="Event:" />
+				<h:outputText
+					value="#{reservationTrack.reservation.dateReservation}">
+					<f:convertDateTime pattern="yyyy-MM-dd" />
+				</h:outputText>
+			</p:panelGrid>
+		</p:dialog>
 		<br />
 		<br />
-		
+
 		<div class="clearfix"></div>
 		<h:commandButton class="btn btn-success"
 			action="#{reservationTrack.checkSkier()}" value="Confirm">

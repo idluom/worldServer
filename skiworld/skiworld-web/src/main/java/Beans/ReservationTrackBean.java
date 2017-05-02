@@ -109,10 +109,10 @@ public class ReservationTrackBean {
 				new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error !", "You have been book for this Track !"));
 	}
 
-	// Calendar finction
+	 //Calendar fonction
 	   public void onDateSelect(SelectEvent event) {
 	        FacesContext facesContext = FacesContext.getCurrentInstance();
-	        SimpleDateFormat format = new SimpleDateFormat("yyyy-mm-dd");
+	        SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
 	        facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Date Selected", format.format(event.getObject())));
 	    }
 	
@@ -123,8 +123,8 @@ public class ReservationTrackBean {
 			reservation.setSkier(s);
 
 			reservation.setTrack(track);
-			a = res.checkReservation(14, reservation.getDateReservation());
-			if (s.getCredit() > track.getPrice()) {
+			a = res.checkReservation(track.getIdTrack(), reservation.getDateReservation());
+			if (s.getCredit() > (track.getPrice() * (reservation.getNbrePlaces()))) {
 
 				// Date date = new Date();
 				
@@ -133,8 +133,8 @@ public class ReservationTrackBean {
 					res.addReservationTrack(reservation);
 					s.setCredit(s.getCredit() - track.getPrice() * reservation.getNbrePlaces());
 					skierEJB.updateSkier(s);
-					t.setPlaces(t.getPlaces()-1);
-					trackEJB.updateTrack(t);
+					//t.setPlaces(t.getPlaces()-1);
+					//trackEJB.updateTrack(t);
 					// Track tr = trackEJB.findTrackById(track.getIdTrack());
 					// tr.setNumberPlaces(tr.get() -
 					// reservation.getNbrePlaces());

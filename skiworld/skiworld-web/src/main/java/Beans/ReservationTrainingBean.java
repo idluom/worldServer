@@ -4,6 +4,7 @@ import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
 import Entity.Skier;
@@ -14,7 +15,7 @@ import Service.SkierEJB;
 import Service.TrainingEJB;
 
 @ManagedBean(name="reservationTraining")
-@SessionScoped
+@ViewScoped
 public class ReservationTrainingBean {
 	private Skier skier = new Skier();
 
@@ -26,9 +27,10 @@ public class ReservationTrainingBean {
 	private TrainingEJB trainingEJB = new TrainingEJB();
 	
 	private boolean formDisplayed=false;
+	private boolean formDisplayed2=false;
 	private TraningSkier reservation = new TraningSkier();
 	private Training training = new Training();
-	
+	private float totalPrice;
 	// message de Notification : ajout avec succes
 	public void info() {
 		FacesContext.getCurrentInstance().addMessage(null,
@@ -52,6 +54,7 @@ public class ReservationTrainingBean {
 			
 			if (s.getCredit() > training.getPrice()) {
 				
+				
 				res.addReservationTraining(reservation);
 				s.setCredit(s.getCredit() - training.getPrice() * reservation.getNbrePlaces());
 				skierEJB.updateSkier(s);
@@ -59,7 +62,7 @@ public class ReservationTrainingBean {
 //				tr.setNumberPlaces(tr.getNumberPlaces() - reservation.getNbrePlaces());
 //				trackEJB.updateTrack(tr);
 				info();
-				
+				setFormDisplayed2(false);
 			} else {
 				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
 						"Error !", "Please Check Your Credit Before Continuing !"));
@@ -72,10 +75,17 @@ public class ReservationTrainingBean {
 	}
 	public String showForm() {
 		String navTo = "";
+		totalPrice = (reservation.getNbrePlaces() * training.getPrice());
 		setFormDisplayed(true);
 		return navTo;
 	}
 	
+	public String showForm2(){
+		String navTo="";
+		setFormDisplayed2(true);
+		setFormDisplayed(false);
+		return navTo;
+	}
 	
 	//getters et setters
 	public Skier getSkier() {
@@ -119,6 +129,22 @@ public class ReservationTrainingBean {
 	}
 	public void setTraining(Training training) {
 		this.training = training;
+	}
+
+	public boolean isFormDisplayed2() {
+		return formDisplayed2;
+	}
+
+	public void setFormDisplayed2(boolean formDisplayed2) {
+		this.formDisplayed2 = formDisplayed2;
+	}
+
+	public float getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(float totalPrice) {
+		this.totalPrice = totalPrice;
 	}
 	
 	
