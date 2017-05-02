@@ -1,6 +1,8 @@
 package Entity;
 
 import java.io.Serializable;
+import java.util.Date;
+
 import javax.persistence.*;
 
 /**
@@ -21,13 +23,27 @@ public class TrackSkier implements Serializable {
 	@JoinColumn(name="idSkierPK",insertable=false,updatable=false)
 	private Skier skier;
 	private int nbrePlaces;
-	
+	private Date dateReservation;
 	public TrackSkier(){
 		TrackSkierID = new TrackSkierID();
 	}
 	
 	
-	
+	/*
+	 * Getters et Setters
+	 */
+	public Date getDateReservation() {
+		return dateReservation;
+	}
+
+
+
+	public void setDateReservation(Date dateReservation) {
+		this.dateReservation = dateReservation;
+	}
+
+
+
 	public int getNbrePlaces() {
 		return nbrePlaces;
 	}
@@ -56,7 +72,9 @@ public class TrackSkier implements Serializable {
 		TrackSkierID.setIdSkierPK(skier.getIdSkier());
 		this.skier = skier;
 	}
-
+/*
+ * To String pour afficher les Reservation du Tracks
+ */
 	@Override
 	public String toString() {
 		return "TrackSkier [TrackSkierID=" + TrackSkierID + ", track=" + track + ", skier=" + skier + ", nbrePlaces="
