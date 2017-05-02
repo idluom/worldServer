@@ -41,13 +41,28 @@
 				value="#{reservationTrack.reservation.nbrePlaces}" />
 		</div>
 		<div class="form-group col-md-6">
-			<h:outputText value="Date" />
+			<h:outputText value="Address" />
 			<h:inputText class="form-control"
-				value="#{reservationTrack.reservation.dateReservation}" id="date">
-				<f:param name="date"></f:param>
-				<f:convertDateTime pattern="yyyy-mm-dd" /> 
-			</h:inputText>
+				 />
 		</div>
+		
+			<!-- 			<h:outputText value="Date" /> -->
+			<!-- 			<h:inputText class="form-control" -->
+			<!-- 				value="#{reservationTrack.reservation.dateReservation}" id="date"> -->
+			<!-- 				<f:param name="date"></f:param> -->
+			<!-- 				<f:convertDateTime pattern="yyyy-mm-dd" />  -->
+			<!-- 			</h:inputText> -->
+			
+			<p:watermark value="Date" for="event"></p:watermark>
+			<p:growl id="msgs" showDetail="true" />
+			<p:calendar id="event"
+				value="#{reservationTrack.reservation.dateReservation}">
+				<p:ajax event="dateSelect"
+					listener="#{reservationTrack.onDateSelect}" update="msgs" />
+			</p:calendar>
+		<br />
+		<br />
+		
 		<div class="clearfix"></div>
 		<h:commandButton class="btn btn-success"
 			action="#{reservationTrack.checkSkier()}" value="Confirm">
