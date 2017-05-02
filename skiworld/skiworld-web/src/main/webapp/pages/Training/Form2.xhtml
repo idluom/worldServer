@@ -1,0 +1,43 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:messages class="alert alert-info" id="messages" showDetail="true"
+		autoUpdate="true" closable="true" />
+
+	<h:form role="form" class="contact-form"
+		rendered="#{reservationTraining.formDisplayed2}">
+		<div class="container text-center">
+			<h1>Reservation for #{reservationTraining.training.title}</h1>
+			<p class="big-paragraph">#{reservationTraining.training.level}</p>
+		</div>
+		
+		<div class="container text-center">
+			<h1>Total Price :</h1>
+			<p class="big-paragraph">#{reservationTraining.totalPrice}</p>
+		</div>
+		
+		<div class="form-group col-md-6">
+
+			<h:outputText value="Credit Card" id="Card" />
+			<h:inputText class="form-control"
+				value="#{reservationTraining.skier.cardNumber}" />
+
+		</div>
+		<div class="form-group col-md-6">
+			<h:outputText value="PIN" />
+			<h:inputSecret class="form-control"
+				value="#{reservationTraining.skier.pin}" />
+		</div>
+
+
+		<div class="clearfix"></div>
+		<h:commandButton class="btn btn-success"
+			action="#{reservationTraining.checkSkier()}" value="Confirm">
+		</h:commandButton>
+
+	</h:form>
+
+</ui:composition>

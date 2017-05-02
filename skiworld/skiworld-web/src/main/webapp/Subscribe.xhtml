@@ -1,0 +1,32 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                 xmlns:p="http://primefaces.org/ui"
+                 template="/template/tst.xhtml">
+                	
+		<!--  template="/template/tst.xhtml"
+			
+			<link rel="stylesheet" type="text/css" href="#{request.contextPath}/ressources/shortcodes/shortcodes.css"/>
+			 <link href="#{request.contextPath}/ressources/css/style.css" rel="stylesheet"/>
+			 -->
+		<ui:define name=""></ui:define>		
+			<ui:define name="pageContent">
+
+    
+			 <br />
+		
+<p:chart type="line" model="#{skierBean.lineModel}" style="height:300px;"/>
+
+		
+		<p:dock position="bottom">
+    <p:menuitem value="Home" icon="ressources/images/sep.png" url="/Video.xhtml"/>
+    <p:menuitem value="Music" icon="#{request.contextPath}/ressources/images/icons/ico1.png" url="http://localhost:18080/skiworld-web/Subscribe.jsf"/>
+	
+</p:dock>
+			
+		
+  
+    
+			</ui:define>
+</ui:composition>

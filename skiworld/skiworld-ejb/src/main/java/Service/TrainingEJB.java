@@ -45,8 +45,8 @@ public class TrainingEJB implements TrainingEJBRemote {
 
 	@Override
 	public List<Training> findAllTraining() {
-		
-		return em.createQuery("select p from Training p",Training.class).getResultList();
+		Date date = new Date();
+		return em.createQuery("SELECT p from Training p WHERE p.begeningDate > :date ",Training.class).setParameter("date", date).getResultList();
 	}
 
 	@Override

@@ -2,35 +2,26 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	template="/template/tst.xhtml"
-	 xmlns:p="http://primefaces.org/ui">
-
-<ui:define name="skii"></ui:define>
-<head>
-</head>
-	<ui:define name="pageContent">	
-
-<!-- 
-
+	 xmlns:p="http://primefaces.org/ui"
+	template="/template/tst.xhtml">
 
 	
- 
-<ui:define name=""></ui:define>
-	<ui:define name="pageContent">	
+ <ui:define name="skii"></ui:define>
+<ui:define name="pageContent">
+<!--
+
 	<h:messages class="alert alert-info" infoClass="info" errorClass="error" id="messages" showDetail="true" autoUpdate="true" closable="true" />
 	
 	  <link href="#{request.contextPath}/ressources/css/style.css" rel="stylesheet"/>
-	 -->
+	 
 <link rel="stylesheet" type="text/css" href="#{request.contextPath}/ressources/shortcodes/shortcodes.css"/>
-
+<h:messages id="messages" layout="table" styleClass="messages info" infoClass="info" errorClass="error"/>	
+-->
 		<h:form class="two_third">
 		
-<h:messages id="messages" layout="table" styleClass="messages info" infoClass="info" errorClass="error"/>			
 			<ul>
 					<h:dataTable value="#{tripBean.fr}" var="trip">
-					<p:growl id="growl" showDetail="true" sticky="true" />
 						<h:column>
-
 							<p:fieldset legend="#{trip.description}"
 								style="margin-bottom:20px">
 							
@@ -48,41 +39,39 @@
 									<span> <h:outputText value="Date: #{trip.date}" />
 									</span>
 									<span> 
-									<h:outputLabel> Video: <a href="#{trip.video}"> click here</a>
-												
+									<h:outputLabel > Video:
+											<p:commandButton value="Watch" action="#{tripBean.doWatch()}">
+											
+			<f:setPropertyActionListener value="#{trip}" target="#{tripBean.trip}">
+			</f:setPropertyActionListener>
+										</p:commandButton>	
 										</h:outputLabel>
 									</span>
 
-	<p:commandButton value="Submit" action="#{tripBean.doRegister()}" class="dc_bright_button bright-blue bright-bubble" >
+	<h:commandButton value="Submit" action="#{tripBean.doRegister()}" class="dc_bright_button bright-blue bright-bubble" >
 									
 
-			<f:setPropertyActionListener value="#{trip}" target="#{tripBean.trip}">
-			</f:setPropertyActionListener>
+				<f:setPropertyActionListener value="#{trip}" target="#{tripBean.trip}">
+					</f:setPropertyActionListener>
 		
-			<f:setPropertyActionListener value="true" target="#{tripBean.formDisplayed}">
-			</f:setPropertyActionListener>
+				<f:setPropertyActionListener value="true" target="#{tripBean.formDisplayed}">
+					</f:setPropertyActionListener>
 			
-									</p:commandButton>
+	</h:commandButton>
+	
+	
 	
 								</h:panelGrid>
 								</span>
-							</p:fieldset>
+							</p:fieldset>						
 						</h:column>
-						<div class="dc_divider5"></div>
-					</h:dataTable>
-				
+					</h:dataTable>			
 			</ul>
 			
 		</h:form>
 		
-		<div class="one_third column-last">
-		
-								
+				<div class="one_third column-last">						
 									<ui:include src="/Login.xhtml" />
-									
-									
-	</div>
-		
-		
-</ui:define>
+					</div>												
+</ui:define>			
 </ui:composition>

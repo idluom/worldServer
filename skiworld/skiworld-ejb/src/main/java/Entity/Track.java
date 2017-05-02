@@ -28,6 +28,7 @@ public class Track implements Serializable {
 	private String title;
 	private String description;
 	private byte[] image;
+	private int places;
 	
 	
 	
@@ -78,7 +79,7 @@ public class Track implements Serializable {
 	public void setPrice(float price) {
 		this.price = price;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Track [idTrack=" + idTrack + ", length=" + length + ", difficulty=" + difficulty + ", price=" + price
@@ -87,6 +88,14 @@ public class Track implements Serializable {
 
 	public String getTitle() {
 		return title;
+	}
+	
+	public int getPlaces() {
+		return places;
+	}
+
+	public void setPlaces(int places) {
+		this.places = places;
 	}
 
 	public void setTitle(String title) {

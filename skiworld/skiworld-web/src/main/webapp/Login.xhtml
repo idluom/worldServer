@@ -1,17 +1,23 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:ui="http://java.sun.com/jsf/facelets"
-                
+                xmlns:ui="http://java.sun.com/jsf/facelets"         
                 xmlns:p="http://primefaces.org/ui">
-               <h:form role="form" class="contact-form" rendered="#{tripBean.formDisplayed}">
+             
+             
+            <h:form role="form" rendered="#{tripBean.formDisplayed}" class="contact-form">
 		
-		<div class="form-group col-md-6">
+	 <div class="form-group col-md-6">
 			<h:outputText value="Card Number" />
 			<h:inputText class="form-control" value="#{skierBean.skier.cardNumber}" />
 		</div>
 		<div class="clearfix"></div>
-			<h:commandButton class="btn btn-success" action="#{skierBean.checkSkier()}" value="Confirm" />
+	
+		<div class="g-recaptcha" data-sitekey="6LcwNQ0UAAAAADF-1Wu9XfeyvhHY7v-I4PwxQzZY"></div>
+    <p:captcha label="Captcha" />
+			<h:commandButton class="btn btn-success" action="#{skierBean.checkSkier()}" value="Confirm" >
 		
+			</h:commandButton>
+			
 	</h:form>
 </ui:composition>
