@@ -134,7 +134,12 @@ public class TransportCartClient implements Serializable {
 	}
 
 	public String confirm() {
-		Skier s = skierEJB.findSkierByCardNumber(skier.getCardNumber());
+		Skier s = new Skier();
+		try {
+			s = skierEJB.findSkierByCardNumber(skier.getCardNumber());
+		} catch (Exception ex) {
+			
+		}
 		List<ReservationTransport> ls = cartEJB.getCart();
 		try {
 			for (ReservationTransport reservationTransport : ls) {
