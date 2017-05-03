@@ -103,5 +103,17 @@ public class EventEJB implements EventEJBRemote {
 		return em.createQuery("SELECT e from Events e where e.date>:date", Events.class).setParameter("date", date).getResultList();
 		
 	}
+	
+	public List<Events> findEventsByDates(Date datedebut,Date datefin){
+		SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		String datedebut1 = sdf2.format(datedebut);
+		String datefin1 = sdf2.format(datefin);
+		
+		List <Events> list= em.createQuery("Select e from Events e where e.date BETWEEN '"+datedebut1+"' AND '"+datefin1+"'").getResultList();
+		return list;
+		
+		
+	}
+	
 
 }

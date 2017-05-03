@@ -1,0 +1,25 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:form role="form" class="contact-form" rendered="#{roomBean.formDisplayed}">
+		<br/>
+		<center>
+		<div class="clearfix"></div>
+		<div class="form-group col-md-6">
+		<h:outputText value="Start Date" />
+		<p:calendar value="#{roomBean.reservation.dateDebut}" />
+		<h:outputText value="End Date" />
+		<p:calendar value="#{roomBean.reservation.dateFin}" />
+		</div>
+		<div class="clearfix"></div>
+		<h:commandButton action="#{roomBean.checkReservation()}" class="dc_gradient_button large light_blue"
+			value="Book Now !!">
+		</h:commandButton>
+		</center>
+		
+
+	</h:form>
+</ui:composition>

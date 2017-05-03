@@ -24,7 +24,7 @@ public class Events implements Serializable {
 	private Integer nbrPlaces;
 	private Float price;
 	private static final long serialVersionUID = 1L;
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.EAGER)
 	private List<Skier> listSkier;
 	@ManyToOne
 	private Hotel hotel;

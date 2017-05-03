@@ -1,0 +1,61 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/template/tst.xhtml">
+
+	<ui:define name="pageContent">
+		<table class="dc_table_s2" summary="Overview of hosting plans"
+			style="width: 100%;">
+			<caption>Book Your Room Now !!</caption>
+			<thead>
+				<tr class="odd">
+
+					<th scope="col" abbr="Simple">Double Beds</th>
+					<th scope="col" abbr="Business">Simple Beds</th>
+					<th scope="col" abbr="Pro">description</th>
+					<th scope="col" abbr="Pro">Price</th>
+				</tr>
+			</thead>
+
+			<tbody>
+
+				<ui:repeat value="#{roomBean.rooms}" var="room">
+
+					<tr>
+
+						<td>#{room.nbrDoubleBed}</td>
+						<td>#{room.nbrSimpleBed}</td>
+						<td>#{room.description}</td>
+
+						<td colspan="5"><em>#{room.price} dt</em> / night<br /> <h:form>
+								<h:commandButton immediate="true"
+									class="dc_gradient_button small light_blue" value="Book Now"
+									action="#{roomBean.showForm()}">
+									<f:setPropertyActionListener value="#{room}"
+										target="#{roomBean.room}"></f:setPropertyActionListener>
+									<f:setPropertyActionListener value="true"
+										target="#{roomBean.formDisplayed}"></f:setPropertyActionListener>
+								</h:commandButton>
+							</h:form></td>
+
+
+
+					</tr>
+
+				</ui:repeat>
+
+			</tbody>
+
+		</table>
+
+		<ui:insert>
+			<ui:include src="/pages/Hotel/RoomForm.xhtml" />
+		</ui:insert>
+
+		<ui:insert>
+			<ui:include src="/pages/Hotel/Payement.xhtml" />
+		</ui:insert>
+
+	</ui:define>
+</ui:composition>

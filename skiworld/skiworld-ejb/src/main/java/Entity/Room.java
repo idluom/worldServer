@@ -21,6 +21,7 @@ public class Room implements Serializable {
 	private int nbrSimpleBed;
 	private int nbrDoubleBed;
 	private float price;
+	private int nbr;
 	private static final long serialVersionUID = 1L;
 	@OneToMany(mappedBy="room")
 	private List<ReservationSkierRoom> listReservation;
@@ -73,6 +74,12 @@ public class Room implements Serializable {
 	public String toString() {
 		return "Room [idRoom=" + idRoom + ", description=" + description + ", nbrSimpleBed=" + nbrSimpleBed
 				+ ", nbrDoubleBed=" + nbrDoubleBed + ", price=" + price + ", hotel=" + hotel + "]";
+	}
+	public int getNbr() {
+		return nbr;
+	}
+	public void setNbr(int nbr) {
+		this.nbr = nbr;
 	}
    
 }

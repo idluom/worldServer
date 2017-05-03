@@ -1,0 +1,60 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/template/tst.xhtml">
+
+	<ui:define name="pageContent">
+		<table class="dc_table_s2" summary="Overview of hosting plans"
+			style="width: 100%;">
+			<caption>Book Your Event Now !!</caption>
+			<thead>
+				<tr class="odd">
+
+					<th scope="col" abbr="Simple">Name</th>
+					<th scope="col" abbr="Business">Place</th>
+					<th scope="col" abbr="Pro">Description</th>
+					<th scope="col" abbr="Pro">Date</th>
+					<th scope="col" abbr="Pro">Price</th>
+				</tr>
+			</thead>
+
+			<tbody>
+
+				<ui:repeat value="#{eventBean.listEvents}" var="event">
+
+					<tr>
+
+						<td>#{event.name}</td>
+						<td>#{event.place}</td>
+						<td>#{event.description}</td>
+						<td><h:outputText id="date" value="#{event.date}">
+								<f:convertDateTime pattern="dd/MM/yyyy HH:mm" />
+							</h:outputText></td>
+
+						<td colspan="5"><em>#{event.price} dt</em><br /> <h:form>
+								<h:commandButton class="dc_gradient_button small light_blue"
+									value="Book Now" action="#{eventBean.showForm()}">
+									<f:setPropertyActionListener value="#{event}"
+										target="#{eventBean.event}"></f:setPropertyActionListener>
+								</h:commandButton>
+							</h:form></td>
+
+
+
+					</tr>
+
+				</ui:repeat>
+
+			</tbody>
+
+
+		</table>
+		<ui:insert>
+			<ui:include src="/pages/Hotel/PayementEvent.xhtml" />
+		</ui:insert>
+
+
+
+	</ui:define>
+</ui:composition>

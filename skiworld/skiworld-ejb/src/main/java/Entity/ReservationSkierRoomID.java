@@ -6,36 +6,38 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class ReservationSkierRoomID implements Serializable{
 
-	private int idSkierPK;
-	private int idRoomPK;
+	private Long idSkierPK;
+	private Long idRoomPK;
 	private static final long serialVersionUID = 1L;
 
 	public ReservationSkierRoomID() {
 		super();
 	}
 
-	public int getIdSkierPK() {
+	public Long getIdSkierPK() {
 		return idSkierPK;
 	}
 
-	public void setIdSkierPK(int idSkierPK) {
+	public void setIdSkierPK(Long idSkierPK) {
 		this.idSkierPK = idSkierPK;
 	}
 
-	public int getIdRoomPK() {
+	public Long getIdRoomPK() {
 		return idRoomPK;
 	}
 
-	public void setIdRoomPK(int idRoomPK) {
+	public void setIdRoomPK(Long idRoomPK) {
 		this.idRoomPK = idRoomPK;
 	}
+
+
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + idRoomPK;
-		result = prime * result + idSkierPK;
+		result = prime * result + ((idRoomPK == null) ? 0 : idRoomPK.hashCode());
+		result = prime * result + ((idSkierPK == null) ? 0 : idSkierPK.hashCode());
 		return result;
 	}
 
@@ -48,9 +50,15 @@ public class ReservationSkierRoomID implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		ReservationSkierRoomID other = (ReservationSkierRoomID) obj;
-		if (idRoomPK != other.idRoomPK)
+		if (idRoomPK == null) {
+			if (other.idRoomPK != null)
+				return false;
+		} else if (!idRoomPK.equals(other.idRoomPK))
 			return false;
-		if (idSkierPK != other.idSkierPK)
+		if (idSkierPK == null) {
+			if (other.idSkierPK != null)
+				return false;
+		} else if (!idSkierPK.equals(other.idSkierPK))
 			return false;
 		return true;
 	}

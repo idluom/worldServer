@@ -29,7 +29,7 @@ public class Skier implements Serializable {
 	private String lastName;
 	private String address;
 	private Date birthday;
-	@ManyToMany(mappedBy="listSkier")
+	@ManyToMany( fetch = FetchType.EAGER,mappedBy="listSkier")
 	private List<Events> listEvents;
 	@ManyToMany(mappedBy="skier")
 	private List<Trip> Trips;

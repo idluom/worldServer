@@ -1,0 +1,42 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:messages class="alert alert-info" id="messages" showDetail="true"
+		autoUpdate="true" closable="true" />
+
+	<h:form role="form" class="contact-form"
+		rendered="#{roomBean.formDisplayed2}">
+
+		<div class="form-group col-md-6">
+			<p:tooltip for="creditcard" value="insert your credit card" />
+			<h:outputText value="Credit Card" />
+			<h:inputText id="creditcard" class="form-control"
+				value="#{roomBean.skier.cardNumber}" required="true" requiredMessage="Credit Card : champs obligatoire" />
+		</div>
+		<div class="form-group col-md-6">
+			<p:tooltip for="pin" value="insert your PIN" />
+			<h:outputText value="PIN" />
+			<h:inputSecret id="pin" class="form-control"
+				value="#{roomBean.skier.pin}" required="true"
+				requiredMessage="PIN : Champs Obligatoire"/>
+		</div>
+		<div class="form-group col-md-6">
+			<p:tooltip for="name" value="insert your Name" />
+			<h:outputText value="First Name" />
+			<h:inputText id="name" class="form-control" value="#{roomBean.skier.name}" />
+		</div>
+		<div class="form-group col-md-6">
+		<p:tooltip for="lastname" value="insert your Last Name" />
+			<h:outputText value="Last Name" />
+			<h:inputText id="lastname" class="form-control" value="#{roomBean.skier.lastName}" />
+		</div>
+		<div class="clearfix"></div>
+		<h:commandButton class="btn btn-success"
+			action="#{roomBean.checkSkier()}" value="Confirm">
+		</h:commandButton>
+
+	</h:form>
+</ui:composition>
