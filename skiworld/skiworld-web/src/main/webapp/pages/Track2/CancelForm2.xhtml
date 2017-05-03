@@ -1,0 +1,65 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:form role="form" class="contact-form"
+		rendered="#{reservationTrack.cancel2}">
+		<div class="container text-center">
+			<h1>Your books </h1>
+			<p class="big-paragraph">for our tracks</p>
+		</div>
+		<section class="main__middle__container">
+			<div class="container">
+
+				<p:dataTable var="tt" value="#{reservationTrack.showReservation()}">
+					<p:column headerText="Your Name">
+						<h:outputText value="#{tt.firstName}"></h:outputText>
+					</p:column>
+					<p:column headerText="Your LastName">
+						<h:outputText value="#{tt.skier.lastName}"></h:outputText>
+					</p:column>
+					<p:column headerText="When">
+						<h:outputText value="#{tt.dateReservation}"></h:outputText>
+					</p:column>
+					<p:column headerText="Places">
+						<h:outputText value="#{tt.nbrePlaces}"></h:outputText>
+					</p:column>
+					<p:column headerText="Track">
+						<h:outputText value="#{tt.track.title}"></h:outputText>
+					</p:column>
+					<p:column headerText="Track">
+						<h:outputText value="#{tt.track.price}"></h:outputText>
+					</p:column>
+					
+<!-- 						<p:column> -->
+<!-- 							<div class="clearfix"></div> -->
+<!-- 							<h:form> -->
+<!-- 								<h:commandButton class="btn btn-danger" -->
+<!-- 									action="#{transportCartClient.deleteItem()}" value="Cancel"> -->
+<!-- 									<f:setPropertyActionListener value="#{tt}" -->
+<!-- 										target="#{transportCartClient.selected}"></f:setPropertyActionListener> -->
+<!-- 								</h:commandButton> -->
+<!-- 							</h:form> -->
+<!-- 						</p:column> -->
+				</p:dataTable>
+				<div class="clearfix"></div>
+				<!-- 				<h:form> -->
+				<!-- 					<h:commandButton immediate="true" class="btn btn-lg btn-info" -->
+				<!-- 						action="#{transportCartClient.showForm()}" value="Confirm Cart"> -->
+				<!-- 						<f:setPropertyActionListener value="true" -->
+				<!-- 							target="#{transportCartClient.form}"></f:setPropertyActionListener> -->
+				<!-- 					</h:commandButton> -->
+				<!-- 				</h:form> -->
+<!-- 				<ui:insert> -->
+<!-- 					<ui:include src="/pages/Transport/form.xhtml" /> -->
+<!-- 				</ui:insert> -->
+			</div>
+		</section>
+
+
+	</h:form>
+
+</ui:composition>
