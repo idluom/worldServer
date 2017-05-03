@@ -1,5 +1,6 @@
 package Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -16,6 +17,7 @@ import Entity.Equipement;
  * Session Bean implementation class EquipementEJB
  */
 @Stateless
+@LocalBean
 public class EquipementEJB implements EquipementEJBRemote {
 	@PersistenceContext(unitName="skiworld-ejb")
 	EntityManager em;
@@ -47,7 +49,9 @@ public class EquipementEJB implements EquipementEJBRemote {
 	}
 	@Override
 	public float priceAfterDiscount(Equipement E) {
+		System.out.println("ssss");
 	return E.getPrice()-((E.getPrice()/100)*E.getDiscount().getPercentage());
+	
 	
 		
 	}
@@ -66,11 +70,28 @@ public class EquipementEJB implements EquipementEJBRemote {
 	@Override
 	public Equipement FindByName(String name) {
 		try{ 
-			 return	em.createQuery("SELECT m FROM Equipement m WHERE m.name =?", Equipement.class)
+			 return	em.createQuery("SELECT m  FROM Equipement m WHERE m.name =?", Equipement.class)
 				.setParameter(1,name).getSingleResult();
 			}catch (Exception e) {	return null;}
 	
 	}
+	@Override
+	public List<Equipement> displayAllEquipement() {
+		
+		return em.createQuery("SELECT r FROM Equipement r ", Equipement.class).getResultList();
+	}
+	@Override
+	public List<Equipement> displayAllDiscountEquipement() {
+		return em.createQuery("SELECT r FROM Equipement r WHERE r.discount is not null", Equipement.class).getResultList();
+	}
+	@Override
+	public List<Equipement> searchEquipement(String key) {	 
+			
+			 return em.createQuery("select u from Equipement  WHERE u.name like :1",Equipement.class).setParameter("1","%"+key+"%").getResultList();
+		
+			 
+		}
+	
 	
 	
 
