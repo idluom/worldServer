@@ -31,6 +31,7 @@
 				<!-- 				<f:ajax event="blur" render="msgCard"/> -->
 			</h:inputText>
 			<h:message id="msgCard" for="Card" />
+			<p:tooltip for="Card" value="Your Card Number please"/>
 		</div>
 		<div class="form-group col-md-6">
 			<p:watermark value="PIN" for="pin"></p:watermark>
@@ -41,6 +42,7 @@
 
 			</h:inputSecret>
 			<h:messages for="pin" id="msgPin" />
+			<p:tooltip for="pin" value="Your Pin Please"/>
 		</div>
 		<div class="form-group col-md-6">
 			<p:watermark value="First Name" for="nom"></p:watermark>
@@ -48,20 +50,23 @@
 			<h:inputText class="form-control" id="nom"
 				value="#{reservationTrack.reservation.firstName}" />
 		</div>
+		<p:tooltip for="nom" value="Your Name !!"></p:tooltip>
 		<div class="form-group col-md-6">
 			<p:watermark value="Last Name" for="prenom"></p:watermark>
 			<h:outputText value="Last Name" />
 			<h:inputText class="form-control"
 				value="#{reservationTrack.reservation.lastName}" id="prenom" />
 		</div>
+		<p:tooltip for="prenom" value="Your Family name !"></p:tooltip>
 		<div class="form-group col-md-6">
 			<p:watermark value="Number of places" for="Number"></p:watermark>
 			<h:outputText value="Number Of Places" />
 			<h:inputText class="form-control"
 				value="#{reservationTrack.reservation.nbrePlaces}" id="Number"
 				required="true"
-				requiredMessage="Number Of Places : CHamps Obligatoire">
+				requiredMessage="Number Of Places : Champs Obligatoire">
 				<h:message for="Number" id="msgNumber" />
+				<p:tooltip for="Number" value="Number of Person"/>
 			</h:inputText>
 		</div>
 		<div class="form-group col-md-6">
