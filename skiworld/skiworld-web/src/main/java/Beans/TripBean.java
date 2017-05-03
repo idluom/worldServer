@@ -2,7 +2,6 @@ package Beans;
 
 import java.io.Serializable;
 
-
 import javax.faces.application.FacesMessage;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,6 +13,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -30,6 +30,7 @@ import org.primefaces.event.UnselectEvent;
 import org.primefaces.model.DualListModel;
 
 import Entity.ReservationTrip;
+import Entity.ReservationTripID;
 import Entity.Skier;
 import Entity.Track;
 import Entity.Trip;
@@ -42,7 +43,7 @@ import javafx.scene.control.Alert;
 import javafx.util.Duration;
 
 @ManagedBean
-@ApplicationScoped
+@ViewScoped
 public class TripBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -60,14 +61,17 @@ public class TripBean implements Serializable {
 	}
 	List<String> citiesSource = new ArrayList<String>();
 	private List<Trip> fr;
-
+	private List<Trip> tr;
 	@EJB
 	private TripEJBRemote tripEJB;
 	Skier skier = new Skier();
+	Skier Sskier = new Skier();
 	@PostConstruct
 	public void init() {
 
 		fr = tripEJB.DisplayAll();
+		tr= SkierBean.getSRL();
+		Sskier= SkierBean.getSskier();
 		StringBuilder builder = new StringBuilder();
 		FacesMessage msg = new FacesMessage();
 		msg.setSeverity(FacesMessage.SEVERITY_INFO);
@@ -88,8 +92,6 @@ public class TripBean implements Serializable {
 		setVideo(v);
 		///Login?faces-redirect=true
 
-		Subscribe();
-		
         return "";
 	}
 	
@@ -98,7 +100,6 @@ public class TripBean implements Serializable {
 	{
 		String s= trip.getVideo().substring(32,trip.getVideo().length());
 		String v = "//www.youtube.com/v/"+s+"?color2=FBE9EC&amp;loop=1&amp;playlist=-KCBLA-fuVw&amp;version=3";
-		System.out.println("vvvvv  "+v);
 		setVideo(v);
 		return "Video?faces-redirect=true";
 	}
@@ -114,20 +115,37 @@ public class TripBean implements Serializable {
 
 	}
 	
+	public String CancelSubscribtion(){
+		ReservationTrip reservationTrip = new ReservationTrip();
+		reservationTrip.setTrip(trip);
+		reservationTrip.setSkier(Sskier);
+		ReservationTripID rid = new ReservationTripID();
+		int p =(int) Sskier.getIdSkier();
+		rid.setSkierId(p);
+		rid.setTripId(trip.getId());
+		reservationTrip.setReservationTripId(rid);
+		reservation.Delete(reservationTrip);
+		Skier sk;
+		sk =Sskier;
+		sk.setCredit(Sskier.getCredit()+trip.getPrice());
+
+		skierRemote.updateSkier(sk);
+		tr.remove(trip);
+		for (Trip st : tr) {
+			System.out.println(st.getDescription());
+		}
+		return "Subscribe?faces-redirect=true";
+	}
+	
+	
+	
+	
 	public List<Trip> getFr() {
 		return fr;
 	}
 
 	public void setFr(List<Trip> fr) {
 		this.fr = fr;
-	}
-
-	public boolean isFormDisplayed() {
-		return formDisplayed;
-	}
-
-	public void setFormDisplayed(boolean formDisplayed) {
-		this.formDisplayed = formDisplayed;
 	}
 
 	public Trip getTrip() {
@@ -160,7 +178,25 @@ public class TripBean implements Serializable {
 
 	public void setVideo(String video) {
 		Video = video;
-	} 
+	}
+
+	public boolean isFormDisplayed() {
+		return formDisplayed;
+	}
+
+	public void setFormDisplayed(boolean formDisplayed) {
+		this.formDisplayed = formDisplayed;
+	}
+
+	public List<Trip> getTr() {
+		return tr;
+	}
+
+	public void setTr(List<Trip> tr) {
+		this.tr = tr;
+	}
+
+
 
 	
     

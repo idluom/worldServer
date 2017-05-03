@@ -6,16 +6,21 @@
              
              
             <h:form role="form" rendered="#{tripBean.formDisplayed}" class="contact-form">
-		
+		<p:growl id="growl" showDetail="true" sticky="true" />
 	 <div class="form-group col-md-6">
 			<h:outputText value="Card Number" />
-			<h:inputText class="form-control" value="#{skierBean.skier.cardNumber}" />
+			<h:inputText class="form-control" id="card" value="#{skierBean.skier.cardNumber}" required="true" requiredMessage="Obligatoire" />
+		
+		</div>
+		<div class="form-group col-md-6">
+			<h:outputText value="Secret Code" />
+			<h:inputSecret value="#{skierBean.skier.pin}" id="pin" class="form-control"  required="true" requiredMessage="Obligatoire"/>
 		</div>
 		<div class="clearfix"></div>
 	
 		<div class="g-recaptcha" data-sitekey="6LcwNQ0UAAAAADF-1Wu9XfeyvhHY7v-I4PwxQzZY"></div>
     <p:captcha label="Captcha" />
-			<h:commandButton class="btn btn-success" action="#{skierBean.checkSkier()}" value="Confirm" >
+			<h:commandButton class="btn btn-success" action="#{skierBean.checkSkier()}" value="Confirm" update="growl">
 		
 			</h:commandButton>
 			

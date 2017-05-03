@@ -3,7 +3,8 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                  xmlns:p="http://primefaces.org/ui"
-                 template="/template/tst.xhtml">
+                 template="/template/tst.xhtml"
+                 xmlns:p1="http://primefaces.org/ui">
                 	
 		<!--  template="/template/tst.xhtml"
 			
@@ -13,17 +14,76 @@
 		<ui:define name=""></ui:define>		
 			<ui:define name="pageContent">
 
-    
+    <p:growl id="growl" showDetail="true" sticky="true" />
 			 <br />
-		
-<p:chart type="line" model="#{skierBean.lineModel}" style="height:300px;"/>
+		<div class="col-md-9">
+		<article>
+		<h:form>	
+			<h1><h:outputText value="#{skierBean.skier.lastName}" /> </h1>
+					<h:dataTable value="#{tripBean.tr}" var="trip" id="trp">
+					<div class="col-md-1">
+					<article>
+						<h:column>
+							<p:fieldset legend="#{trip.description}"
+								style="margin-bottom:20px">
+							
+							<span class="dc_pullquote2 quotes aligncenter">			 		
+								<h:panelGrid columns="2" cellpadding="5">
+									
+									<span>
+								<p1:graphicImage width="250px" height="250px" id="product_image"
+									value="#{tripImageBean.image}" cache="true"
+									styleClass="editor-picture" class="pull-left img-responsive">
+									<f:param name="productName" value="#{trip.description}" />
+								</p1:graphicImage>
+									</span>
+							<div class="text">
+								<span> 
+									<h:outputText value="Places Available: #{trip.number}" />
+											
+								</span>
+									<span> <h:outputText value="Date: #{trip.date}" />
+									</span>
+									<span> 
+									<h:outputLabel > Video:
+											<p:commandButton value="Watch" action="#{tripBean.doWatch()}" >
+											
+			<f:setPropertyActionListener value="#{trip}" target="#{tripBean.trip}">
+			</f:setPropertyActionListener>
+										</p:commandButton>	
+										</h:outputLabel>
+									</span>
+									
+				<span>
+				<h:commandButton value="cancel" action="#{tripBean.CancelSubscribtion()}" class="dc_bright_button bright-blue bright-bubble" update="trp">
+				<f:setPropertyActionListener value="#{trip}" target="#{tripBean.trip}">
+			</f:setPropertyActionListener>
+			</h:commandButton>
+				
+				</span>					
+									
 
-		
-		<p:dock position="bottom">
-    <p:menuitem value="Home" icon="ressources/images/sep.png" url="/Video.xhtml"/>
-    <p:menuitem value="Music" icon="#{request.contextPath}/ressources/images/icons/ico1.png" url="http://localhost:18080/skiworld-web/Subscribe.jsf"/>
+	</div>
 	
-</p:dock>
+								</h:panelGrid>
+					 			</span> 
+							</p:fieldset>						
+						</h:column>
+						</article>
+						</div>
+					</h:dataTable>			
+			
+		</h:form>
+		</article>
+			
+					
+<br /> <br /> <br />		
+<article>
+<p:chart type="line" model="#{skierBean.lineModel}" style="height:300px;"/>
+ <br /> <br />
+<p:chart type="line" model="#{skierBean.lineModel1}" style="height:300px;"/>
+</article>
+		</div>
 			
 		
   
