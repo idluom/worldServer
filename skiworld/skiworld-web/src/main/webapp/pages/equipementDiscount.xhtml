@@ -1,0 +1,76 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p1="http://primefaces.org/ui"
+	 template="/template/tst.xhtml">
+	 
+	<ui:define name="title">Equipement in Discount </ui:define>
+	
+	<ui:define name="pageContent">
+	<a href="/skiworld-web/pages/Shop.jsf" > Back To shop</a>
+	<ui:repeat value="#{shopBean.doAfficherListDiscount()}" var="equipement">
+		<section class="recent-posts">
+			<div class="container">
+				<div class="row no-margin nothing">
+					<div class="col-md-9 ">
+						<article>
+						 
+							
+								<p class="small-paragraph">
+									<h:outputText value="${equipement.name}" />
+									<br />
+								</p>
+								
+ 						<p1:graphicImage value="#{equipementImageBean.image}"   width="80px" height="80px" id="equipement_image" cache="false" class="pull-left img-responsive">
+ 							 <f:param name="equipementName" value="#{equipement.name}"/> 
+						  </p1:graphicImage>
+                                 <p>
+								Category :
+								<h:outputText value="${equipement.category}" />
+								</p>
+								<p>
+									Type:
+									<h:outputText value="#{equipement.type}" />
+								</p>
+								<p>
+									Price:
+									<h:outputText value="#{equipement.price}" />
+									
+								</p>
+								<p>
+								Discount Percentage
+								<h:outputText value="#{equipement.discount.percentage}" />
+								</p>
+								
+								<h:form>
+											<h:commandButton class="btn btn-warning"
+												action="#{achatEquipementBean.showForm()}"
+												value="Buy It Now  !">
+												<f:setPropertyActionListener value="#{equipement}"
+													target="#{achatEquipementBean.e}"></f:setPropertyActionListener>
+											</h:commandButton>
+					
+										</h:form>
+										<h:form>
+											<h:commandButton class="btn btn-warning"
+												action="#{achatEquipementBean.rentForm()}"
+												value="Rent It Now  !">
+												<f:setPropertyActionListener value="#{equipement}"
+													target="#{achatEquipementBean.e}"></f:setPropertyActionListener>
+											</h:commandButton>
+					
+										</h:form>
+								</article>
+							</div>
+							<div class="clearfix"></div>
+						
+					</div>
+					
+			</div>
+			
+		</section>
+	</ui:repeat>
+	
+	</ui:define>
+	</ui:composition>

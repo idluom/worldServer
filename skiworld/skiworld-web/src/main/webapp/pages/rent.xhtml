@@ -1,0 +1,46 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p1="http://primefaces.org/ui"
+	 template="/template/tst.xhtml">
+	<ui:define name="title">Rent </ui:define>
+	<ui:define name="pageContent">
+	<a href="/skiworld-web/pages/Shop.jsf" > Back To shop</a>
+	<p1:messages class="alert alert-info" id="messages" showDetail="true" autoUpdate="true" closable="true" />
+	<h:form role="form" class="contact-form" >
+	<div class="form-group col-md-6">
+	<h:outputLabel  for="bookDate" value="Book StartDay" />
+        <p1:calendar id="bookDate" value="#{achatEquipementBean.achat.datedebut}" mindate="#{achatEquipementBean.date}" effect="fold" >	
+        </p1:calendar>
+	</div>
+	<div class="form-group col-md-6">
+	<h:outputLabel  for="bokDate" value="Book FinishDay" />
+        <p1:calendar id="bokDate" value="#{achatEquipementBean.achat.datefin}" mindate="#{achatEquipementBean.date}" effect="fold" >	
+        </p1:calendar>
+	</div>
+		
+			<div class="form-group col-md-6">
+			<h:outputText value="Credit Card" />
+			<h:inputText class="form-control" value="#{achatEquipementBean.skier.cardNumber}" />
+		</div>
+		<div class="form-group col-md-6">
+			<h:outputText value="PIN" />
+			<h:inputSecret class="form-control" value="#{achatEquipementBean.skier.pin}" />
+		</div>
+			
+		<div class="form-group col-md-6">
+		<div class="knob-container ui-corner-all">
+		<h:outputText for="ss"  value="Number" />
+		
+		    <p1:knob  foregroundColor="#808080" backgroundColor="#0000FF" width="80" height="80" id="ss" max="50" step="1" min="1" value="#{achatEquipementBean.achat.number}">  
+         </p1:knob>
+    </div>
+    </div>
+		
+		<div class="clearfix"></div>
+			<h:commandButton class="btn btn-success" action="#{achatEquipementBean.rent()}" value="Confirm">
+			</h:commandButton>
+		</h:form>
+	</ui:define>
+</ui:composition>

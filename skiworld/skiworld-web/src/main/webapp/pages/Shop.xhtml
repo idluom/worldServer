@@ -1,0 +1,82 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p1="http://primefaces.org/ui" template="/template/tst.xhtml"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="title">Equipement </ui:define>
+
+	<ui:define name="pageContent">
+	
+		<p:messages class="alert alert-info" id="messages" showDetail="true" autoUpdate="true" closable="true" />
+		
+		<a href="/skiworld-web/pages/equipementDiscount.jsf"> Equipement
+			in Discount</a>
+		<br></br>
+		<a href="/skiworld-web/pages/Panier.jsf"> Pay for your Bascket</a>
+		<br></br>
+
+		<ui:repeat value="#{shopBean.listequipement}" var="equipement">
+			<div class="col-md-4 ">
+				<h:form>
+					
+					<p class="small-paragraph">
+						<h:outputText value="${equipement.name}" />
+					</p>
+					<div class="contact-form">
+					<div class="form-group col-md-6">
+					<p1:graphicImage value="#{equipementImageBean.image}" width="80px"
+						height="80px" id="equipement_image" cache="false"
+						class="pull-left img-responsive">
+						<f:param name="equipementName" value="#{equipement.name}" />
+					</p1:graphicImage>
+					</div>
+					<div class="form-group col-md-6">
+					<p>
+						Category:
+						<h:outputText value="${equipement.category}" />
+					</p>
+					<p>
+						Type:
+						<h:outputText value="#{equipement.type}" />
+					</p>
+					<p>
+						Price:
+						<h:outputText value="#{equipement.price}" />
+
+					</p>
+					</div>
+					</div>
+					<div class="contact-form">
+					<div class="col-md-4">
+					<h:commandButton class="btn btn-warning"
+						action="#{achatEquipementBean.showForm()}" value="Buy It Now  !">
+						<f:setPropertyActionListener value="#{equipement}"
+							target="#{achatEquipementBean.e}"></f:setPropertyActionListener>
+					</h:commandButton>
+					</div>
+					<div class="col-md-4">
+					<h:commandButton class="btn btn-warning"
+						action="#{achatEquipementBean.rentForm()}" value="Rent It Now  !">
+						<f:setPropertyActionListener value="#{equipement}"
+							target="#{achatEquipementBean.e}"></f:setPropertyActionListener>
+					</h:commandButton>
+					</div>
+					<div class="col-md-4">
+					<h:commandButton class="btn btn-warning"
+						action="#{achatEquipementBean.addtobascket()}"
+						value="Add to Basket  !">
+						<f:setPropertyActionListener value="#{equipement}"
+							target="#{achatEquipementBean.e}"></f:setPropertyActionListener>
+					</h:commandButton>
+					</div>
+					</div>
+				</h:form>
+
+			</div>
+
+		</ui:repeat>
+
+	</ui:define>
+</ui:composition>
