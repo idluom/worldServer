@@ -18,4 +18,5 @@ public interface TripEJBRemote {
 	public List<Trip> DisplayAll();
 	public Long nbrSkier(int id);
 	public Boolean tripList(Date d);
+	public byte[] findPictureByProductName(String productName);
 }

@@ -3,10 +3,13 @@ package Service;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import Entity.Transport;
 import Entity.Trip;
@@ -64,11 +67,27 @@ public class TripEJB implements TripEJBRemote {
 		System.out.println("NUMBER OF IS///************************************************************************ "+i);
 		if (i==0)
 		{
-			System.out.println("************************************************************");
 			return false;
 		}
 		else return true;
 	
 	}
+	
+	public byte[] findPictureByProductName(String productName) {
+		byte[] picture = null;
+		TypedQuery<byte[]> query = em.createQuery( 
+				"select p.picture from Trip p where p.description=:x", byte[].class);
+		query.setParameter("x", productName);
+		try {
+			picture = query.getSingleResult();
+		} catch (Exception ex) {
+			Logger.getLogger(this.getClass().getName()).log(Level.INFO,
+					"no picture");
+	
+		}
+		return picture;
+
+	}
+	
 
 }
