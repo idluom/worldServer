@@ -17,7 +17,9 @@ public interface EquipementEJBRemote {
 	public List<Equipement> displayAllShopEquipement() ;
 	public List<Equipement> displayAllInventoryEquipement() ;
 	public Equipement FindByName(String name);
-	 
+	public List<Equipement> displayAllEquipement();
+	public List<Equipement> displayAllDiscountEquipement();
+	public List<Equipement> searchEquipement(String key);
 	
 	
 

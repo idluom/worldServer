@@ -21,15 +21,21 @@
 		
 		<div class="form-group col-md-6">
 
-			<h:outputText value="Credit Card" id="Card" />
+			<h:outputText value="Credit Card" />
 			<h:inputText class="form-control"
-				value="#{reservationTraining.skier.cardNumber}" />
+				value="#{reservationTraining.skier.cardNumber}" id="Card" required="true" requiredMessage="CHamps Obligatoire SVP" />
+				<p:tooltip for="Card" value="Champ obligatoire"/>
+				<p:message for="Card" />
+				<p:watermark value="Card Number" for="Card"/>
 
 		</div>
 		<div class="form-group col-md-6">
 			<h:outputText value="PIN" />
 			<h:inputSecret class="form-control"
-				value="#{reservationTraining.skier.pin}" />
+				value="#{reservationTraining.skier.pin}" id="pin" required="true" requiredMessage="Secret Field obligatoire" />
+				<p:tooltip for="pin" value="Secret Field"/>
+				<p:message for="pin" />
+				<p:watermark value="PIN" for="pin"/>
 		</div>
 
 

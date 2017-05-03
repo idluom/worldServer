@@ -30,5 +30,9 @@ public class ReportEJB implements ReportEJBRemote {
 		
 		return em.createQuery("SELECT r FROM Report r ORDER BY r.dateReport DESC", Report.class).getResultList();
 	}
+	
+	public void sendReport(Report report) {
+		em.persist(report);
+	}
 
 }

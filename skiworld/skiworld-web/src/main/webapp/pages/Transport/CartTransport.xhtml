@@ -1,0 +1,52 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:body>
+		<div id="header">
+			<ui:insert name="header">
+				<ui:include src="/template/Header.xhtml" />
+			</ui:insert>
+		</div>
+		<section class="main__middle__container">
+			<div class="container">
+
+				<p:dataTable var="transport"
+					value="#{transportCartClient.getCart()}">
+					<p:column headerText="To">
+						<h:outputText value="#{transport.transport.arrivalPlace}"></h:outputText>
+					</p:column>
+					<p:column headerText="When">
+						<h:outputText value="#{transport.transport.arrivalDate}"></h:outputText>
+					</p:column>
+					<p:column headerText="From">
+						<h:outputText value="#{transport.transport.departurePlace}"></h:outputText>
+					</p:column>
+					<p:column>
+						<div class="clearfix"></div>
+						<h:form>
+							<h:commandButton class="btn btn-danger"
+								action="#{transportCartClient.deleteItem()}" value="Detele Item">
+								<f:setPropertyActionListener value="#{transport}"
+									target="#{transportCartClient.selected}"></f:setPropertyActionListener>
+							</h:commandButton>
+						</h:form>
+					</p:column>
+				</p:dataTable>
+				<div class="clearfix"></div>
+				<h:form>
+					<h:commandButton immediate="true" class="btn btn-lg btn-info"
+						action="#{transportCartClient.showForm()}" value="Confirm Cart">
+						<f:setPropertyActionListener value="true"
+							target="#{transportCartClient.form}"></f:setPropertyActionListener>
+					</h:commandButton>
+				</h:form>
+				<ui:insert>
+					<ui:include src="/pages/Transport/form.xhtml" />
+				</ui:insert>
+			</div>
+		</section>
+	</h:body>
+</ui:composition>

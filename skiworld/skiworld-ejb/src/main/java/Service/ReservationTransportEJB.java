@@ -25,7 +25,7 @@ public class ReservationTransportEJB implements ReservationTransportEJBRemote {
 
 	@Override
 	public void addReservationTransport(ReservationTransport reservation) {
-
+		System.out.println(reservation.getTransport().getArrivalPlace()+" ADDEEEEEED !!");
 		em.persist(reservation);
 	}
 

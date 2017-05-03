@@ -1,8 +1,6 @@
 package Beans;
 
 import java.io.Serializable;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -34,7 +32,6 @@ public class ReservationTransportBean implements Serializable {
 	private boolean formDisplayed = false;
 	private Transport transport = new Transport();
 	private Skier skier = new Skier();
-
 	public ReservationTransportBean() {
 
 	}

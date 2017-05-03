@@ -9,32 +9,42 @@
 
 	<h:form role="form" class="contact-form"
 		rendered="#{reservationTraining.formDisplayed}">
-		 <div class="container text-center">
-      <h1>Reservation for #{reservationTraining.training.title}</h1>
-      <p class="big-paragraph">#{reservationTraining.training.level}</p>
-    </div>
-		
+		<div class="container text-center">
+			<h1>Reservation for #{reservationTraining.training.title}</h1>
+			<p class="big-paragraph">#{reservationTraining.training.level}</p>
+		</div>
+
 		<div class="form-group col-md-6">
 			<h:outputText id="name" value="First Name" />
-			<h:inputText  class="form-control"
+			<h:inputText class="form-control"
 				value="#{reservationTraining.skier.name}" />
-				<p:watermark value="Name" for="name"></p:watermark>
+			<p:watermark value="Name" for="name"></p:watermark>
 		</div>
 		<div class="form-group col-md-6">
 			<h:outputText value="Last Name" />
 			<h:inputText class="form-control"
 				value="#{reservationTraining.skier.lastName}" />
 		</div>
-		<div class="form-group col-md-6">
-			<h:outputText value="Number Of Places" />
-			<h:inputText class="form-control"
-				value="#{reservationTraining.reservation.nbrePlaces}" />
-		</div>
+		<!-- 		<div class="form-group col-md-6"> -->
+		<!-- 			<h:outputText value="Number Of Places" /> -->
+		<!-- 			<h:inputText class="form-control" -->
+		<!-- 				value="#{reservationTraining.reservation.nbrePlaces}" /> -->
+		<!-- 		</div> -->
+
+		<h:panelGrid columns="2" cellpadding="5" styleClass="ui-grid">
+			<h:outputLabel for="prefixx" value="Number of places: " />
+			<p:spinner id="prefix"
+				value="#{reservationTrack.reservation.nbrePlaces}" min="0" max="10"
+				required="true"
+				requiredMessage="Vous devez choisir le nbre de place" />
+			<h:message for="prefix" />
+			<p:tooltip for="prefix" value="Nombre de place à reserver" />
+		</h:panelGrid>
 		<div class="clearfix"></div>
+
 		<h:commandButton class="btn btn-success"
 			action="#{reservationTraining.showForm2()}" value="Next">
 		</h:commandButton>
-
 	</h:form>
 
 </ui:composition>

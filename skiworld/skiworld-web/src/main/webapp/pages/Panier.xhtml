@@ -1,0 +1,96 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p1="http://primefaces.org/ui"
+	 template="/template/tst.xhtml">
+	<ui:define name="title">Your Bascket </ui:define>
+	<ui:define name="pageContent">
+	   <p> Your Bascket Equipement </p>
+	   <a href="/skiworld-web/pages/Shop.jsf" > Back To Shop</a>
+	<ui:repeat value="#{achatEquipementBean.panierequipement}" var="equipement">
+		<section class="recent-posts">
+			<div class="container">
+				<div class="row no-margin nothing">
+					<div class="col-md-9 ">
+						<article>
+						 
+							
+								<p class="small-paragraph">
+									<h:outputText value="${equipement.name}" />
+									<br />
+								</p>
+				                 
+				                 <p1:graphicImage value="#{equipementImageBean.image}"   width="80px" height="80px" id="equipement_image" cache="false" class="pull-left img-responsive">
+ 							 <f:param name="equipementName" value="#{equipement.name}"/> 
+						  </p1:graphicImage>
+								<p>
+									Type:
+									<h:outputText value="#{equipement.type}" />
+								</p>
+								<p>
+									Price:
+									<h:outputText value="#{equipement.price}" />
+									
+								</p>
+								
+								<h:form>
+											<h:commandButton class="btn btn-warning"
+												action="#{achatEquipementBean.deletefrompanier}"
+												value="Move from basket  !">
+												<f:setPropertyActionListener value="#{equipement}"
+													target="#{achatEquipementBean.e}"></f:setPropertyActionListener>
+											</h:commandButton>
+					
+										</h:form>
+										
+										
+								</article>
+							</div>
+							<div class="clearfix"></div>
+						
+					</div>
+					
+			</div>
+			
+		</section>
+	</ui:repeat>
+	<p  class="small-paragraph">
+	Total price of the Bascket : <br></br>   
+	<h:outputText value="#{achatEquipementBean.somme}" />
+	</p>
+	
+	
+	<h:messages class="alert alert-info" id="messages" showDetail="true" autoUpdate="true" closable="true" />
+	
+	
+	
+	<p  class="small-paragraph">
+	Payment Menu
+	</p>
+	
+	
+	
+	
+	<h:form role="form" class="contact-form" >
+	
+	
+		
+			<div class="form-group col-md-6">
+			<h:outputText value="Credit Card" />
+			<h:inputText class="form-control" value="#{achatEquipementBean.skier.cardNumber}" />
+		</div>
+		<div class="form-group col-md-6">
+			<h:outputText value="PIN" />
+			<h:inputSecret class="form-control" value="#{achatEquipementBean.skier.pin}" />
+		</div>
+		
+		<div class="clearfix"></div>
+			<h:commandButton class="btn btn-success" action="#{achatEquipementBean.achatpanier()}" value="Confirm">
+			</h:commandButton>
+		</h:form>
+		
+		
+		
+		</ui:define>
+</ui:composition>

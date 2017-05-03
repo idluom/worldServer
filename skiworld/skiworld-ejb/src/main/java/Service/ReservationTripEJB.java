@@ -1,5 +1,8 @@
 package Service;
 
+import java.util.List;
+
+
 import javax.ejb.LocalBean;
 
 import javax.ejb.Stateless;
@@ -7,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import Entity.ReservationTrip;
+import Entity.Trip;
 
 
 /**
@@ -30,4 +34,17 @@ public class ReservationTripEJB implements ReservationTripRemote {
 		em.persist(rt);	
 	}
 
+	@Override
+	public List<ReservationTrip> DisplayAll() {
+		return em.createQuery("select t from ReservationTrip t", ReservationTrip.class).getResultList();
+	}
+
+	@Override
+	public void Delete(ReservationTrip rt) {
+		em.remove(em.merge(rt));
+	}
+
+
+	
+	
 }
