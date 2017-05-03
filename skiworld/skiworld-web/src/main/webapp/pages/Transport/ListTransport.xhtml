@@ -1,7 +1,8 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 
 	<h:body>
 		<div id="header">
@@ -19,6 +20,11 @@
 			</div>
 			<div class="container">
 				<div class="row no_padding title__block nothing no-margin">
+					<div class="text-right">
+						<a href="/skiworld-web/pages/transport/CartTransport.jsf">Go
+							To Cart (<h:outputText value="#{transportCartClient.nb}" />)
+						</a>
+					</div>
 					<table class="dc_table_s9" summary="Means Of Transport"
 						style="width: 100%;">
 						<caption>Upcoming Transport</caption>
@@ -30,6 +36,7 @@
 								<th scope="col">Arrival Date</th>
 								<th scope="col">Price</th>
 								<th scope="col">Total Places</th>
+								<th scope="col">Mean</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -44,22 +51,21 @@
 									<td><h:outputText value="${transport.arrivalDate}" /></td>
 									<td><h:outputText value="${transport.price}" /></td>
 									<td><h:outputText value="${transport.numberPlaces}" /></td>
+									<td><h:outputText value="${transport.type}" /></td>
 									<td><h:form>
 											<h:commandButton class="btn btn-warning"
-												action="#{reservationTransportBean.showForm()}"
+												action="#{transportCartClient.addToCart()}"
 												value="Book It Now  !">
 												<f:setPropertyActionListener value="#{transport}"
-													target="#{reservationTransportBean.transport}"></f:setPropertyActionListener>
+													target="#{transportCartClient.transport}"></f:setPropertyActionListener>
 											</h:commandButton>
 										</h:form></td>
 								</tr>
 							</ui:repeat>
 						</tbody>
 					</table>
+
 				</div>
-				<ui:insert>
-					<ui:include src="/pages/Transport/form.xhtml" />
-				</ui:insert>
 			</div>
 		</section>
 		<div id="footer">

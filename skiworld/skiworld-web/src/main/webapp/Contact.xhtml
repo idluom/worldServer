@@ -1,0 +1,86 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:body>
+		<div id="header">
+			<ui:insert name="header">
+				<ui:include src="/template/Header.xhtml" />
+			</ui:insert>
+		</div>
+		<section class="main__middle__container">
+			<div class="titles blog text-left">
+				<div class="container">
+					<div class="seper"></div>
+					<h2 class="page__title">Our Users'</h2>
+					<h2 class="page__title">Feedback</h2>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row no_padding title__block nothing no-margin">
+
+					<div class="col-md-8">
+						<h3>Send us a message</h3>
+						<div style="width:100%" class="dc_divider4"></div>
+						<p class="black-text">Our friendly customer service representatives are committed
+							to answering all your questions and meeting any need you may
+							have. We would love to hear from you! Please fill out the form
+							below so we may assist you.</p>
+						<p id="feedback"></p>
+						<h:form>
+							<div class="form-group col-md-6">
+								<h:outputText value="Email Address" />
+								<h:inputText id="mail" style="width:100%;" class="form-control"
+									value="#{reportBean.report.senderMail}" />
+								<p:watermark for="mail" value="example@example.com"
+									id="watermark" />
+							</div>
+							<div class="form-group col-md-5">
+								<h:outputText value="Password" />
+								<h:inputSecret style="width:100%;" class="form-control"
+									value="#{reportBean.passwd}" />
+							</div>
+							<div class="form-group col-md-6">
+								<h:outputText value="Email Object" />
+								<h:inputText id="object" style="width:200%;"
+									class="form-control" value="#{reportBean.report.mailObject}" />
+								<p:watermark for="object" value="Object" id="watermark2" />
+								<h:outputText value="Email Body" />
+								<h:inputTextarea rows="6" style="width:200%;"
+									class="form-control" value="#{reportBean.report.mailBody}" />
+							</div>
+
+							<div class="clearfix"></div>
+							<h:commandButton class="btn btn-lg btn-info"
+								action="#{reportBean.envoyer()}" value="Send">
+							</h:commandButton>
+						</h:form>
+					</div>
+					
+					<div class="col-md-4">
+						<h3>Get in touch with us</h3>
+						<div style="width:60%" class="dc_divider4"></div>
+						<p class="black-text">
+							<span>Address:</span> 123 Street, Fremont, CA, USA
+						</p>
+						<p class="black-text">
+							<span>Telephone:</span> (+216) 71 001 002
+						</p>
+						<p class="black-text">
+							<span>Fax:</span> (+216) 71 002 0002
+						</p>
+					</div>
+					
+				</div>
+			</div>
+		</section>
+		<div id="footer">
+			<ui:insert name="footer">
+				<ui:include src="/template/footer.xhtml" />
+			</ui:insert>
+		</div>
+	</h:body>
+
+</ui:composition>
