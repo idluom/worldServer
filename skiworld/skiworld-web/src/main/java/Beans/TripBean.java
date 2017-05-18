@@ -81,7 +81,7 @@ public class TripBean implements Serializable {
 		FacesContext.getCurrentInstance().addMessage(null, msg);
 		
 	}
-
+	String s;
 	public String doRegister() {
 		setFormDisplayed(true);
 		setStrip(trip);
@@ -95,12 +95,23 @@ public class TripBean implements Serializable {
         return "";
 	}
 	
+	static String vid;
 	
+	public static String getVid() {
+		return vid;
+	}
+
+	public static void setVid(String vid) {
+		TripBean.vid = vid;
+	}
+
 	public String doWatch()
 	{
-		String s= trip.getVideo().substring(32,trip.getVideo().length());
+		 s= trip.getVideo().substring(32,trip.getVideo().length());
 		String v = "//www.youtube.com/v/"+s+"?color2=FBE9EC&amp;loop=1&amp;playlist=-KCBLA-fuVw&amp;version=3";
 		setVideo(v);
+		setVid(v);
+		System.out.println("vvvvvvvvvvvvvvv  "+getVideo());
 		return "Video?faces-redirect=true";
 	}
 
@@ -137,7 +148,11 @@ public class TripBean implements Serializable {
 		return "Subscribe?faces-redirect=true";
 	}
 	
-	
+	public String CheckTrips(){
+		setFormDisplayed(true);
+		System.out.println(formDisplayed+"  ffffffffff");
+		return "";
+	}
 	
 	
 	public List<Trip> getFr() {
@@ -194,6 +209,24 @@ public class TripBean implements Serializable {
 
 	public void setTr(List<Trip> tr) {
 		this.tr = tr;
+	}
+
+	public Skier getSskier() {
+		return Sskier;
+	}
+
+	public void setSskier(Skier sskier) {
+		Sskier = sskier;
+	}
+
+
+	public String getS() {
+		return s;
+	}
+
+
+	public void setS(String s) {
+		this.s = s;
 	}
 
 

@@ -19,7 +19,13 @@
 		<div class="col-md-9">
 		<article>
 		<h:form>	
-			<h1><h:outputText value="#{skierBean.skier.lastName}" /> </h1>
+		<center>
+		<div class="dc_divider5"></div>
+			<h1><h:outputText value="#{tripBean.sskier.lastName}" /> 
+			<h:outputText value=" " />
+			<h:outputText value="#{tripBean.sskier.name}" />  </h1>
+			<div class="dc_divider5"></div>
+			</center>
 					<h:dataTable value="#{tripBean.tr}" var="trip" id="trp">
 					<div class="col-md-1">
 					<article>
@@ -55,7 +61,7 @@
 									</span>
 									
 				<span>
-				<h:commandButton value="cancel" action="#{tripBean.CancelSubscribtion()}" class="dc_bright_button bright-blue bright-bubble" update="trp">
+				<h:commandButton value="cancel" action="#{tripBean.CancelSubscribtion()}" class="dc_bright_button bright-red bright-round" update="trp">
 				<f:setPropertyActionListener value="#{trip}" target="#{tripBean.trip}">
 			</f:setPropertyActionListener>
 			</h:commandButton>

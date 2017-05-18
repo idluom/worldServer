@@ -59,6 +59,7 @@ public class SkierBean implements Serializable {
 	private List<Trip> RL ;
 private static List<Trip>SRL;
 private static Skier Sskier;
+private String vido;
 	public LineChartModel getLineModel() {
 		return lineModel;
 	}
@@ -81,6 +82,7 @@ private static Skier Sskier;
 //**********
 	@PostConstruct
     public void init() {
+		vido=TripBean.getVid();
         createLineModels();
     }
 
@@ -226,8 +228,10 @@ FacesContext context = FacesContext.getCurrentInstance();
 				}
 				setSRL(rl);
 				setSskier(s);
-				return "Subscribe?faces-redirect=true";
+FacesContext contextt = FacesContext.getCurrentInstance();
 				
+				contextt.addMessage(null, new FacesMessage("Successful", "your are subscribed \n"+"you will receive Email"));
+				return "Subscribe?faces-redirect=true";
 				}catch(Exception e){
 					FacesContext context = FacesContext.getCurrentInstance();
 					context.addMessage(null, new FacesMessage("Failed", "your are already subscribed!!"));
@@ -328,6 +332,14 @@ FacesContext context = FacesContext.getCurrentInstance();
 
 	public static void setSskier(Skier sskier) {
 		Sskier = sskier;
+	}
+
+	public String getVido() {
+		return vido;
+	}
+
+	public void setVido(String vido) {
+		this.vido = vido;
 	}
 
 

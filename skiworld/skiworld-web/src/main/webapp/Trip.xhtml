@@ -19,6 +19,7 @@
 <h:messages id="messages" layout="table" styleClass="messages info" infoClass="info" errorClass="error"/>	
  
 -->
+<div class="container">
 		<h:form class="two_third">	
 			
 					<h:dataTable value="#{tripBean.fr}" var="trip">
@@ -75,11 +76,16 @@
 					</h:dataTable>			
 			
 		</h:form>
-		
+		<h:form>
+			
+			
+			
+		</h:form>
 				<div class="one_third column-last">						
 							
 									<ui:include src="/Login.xhtml" />
 					</div>	
-																
+					
+</div>										
 </ui:define>			
 </ui:composition>
