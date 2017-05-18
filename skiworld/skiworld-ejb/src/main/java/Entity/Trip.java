@@ -18,7 +18,7 @@ public class Trip implements Serializable {
 	private int number;
 	private Date date;
 	private String video;
-	private byte[] image;
+	private byte[] picture;
 	@ManyToMany
 	private List<Skier> skier; 
 	@ManyToMany(mappedBy="listTrip")
@@ -30,7 +30,7 @@ public class Trip implements Serializable {
 
 
 
-	public Trip(Integer id, String description, float price, int number, Date date, String video, byte[] image,
+	public Trip(Integer id, String description, float price, int number, Date date, String video, byte[] picture,
 			List<Skier> skier, List<Transport> listTransport) {
 		super();
 		this.id = id;
@@ -39,10 +39,18 @@ public class Trip implements Serializable {
 		this.number = number;
 		this.date = date;
 		this.video = video;
-		this.image = image;
+		this.picture = picture;
 		this.skier = skier;
 		this.listTransport = listTransport;
 	}
+
+
+	public Trip(String description, float price, int number, Date date) {
+		this.description = description;
+		this.price = price;
+		this.number = number;
+		this.date = date;	
+		}
 
 
 
@@ -112,14 +120,22 @@ public class Trip implements Serializable {
 	}
 
 
-	public byte[] getImage() {
-		return image;
+
+
+
+	public byte[] getPicture() {
+		return picture;
 	}
 
 
-	public void setImage(byte[] image) {
-		this.image = image;
+
+
+
+	public void setPicture(byte[] picture) {
+		this.picture = picture;
 	}
+
+
 	
 	
 
